@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+.next/
+out/
+.turbo/
+.vercel/
+coverage/
+
+# TypeScript / framework caches
+*.tsbuildinfo
+.eslintcache
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+ Editor / OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+
+# Local agent/tooling state
+.agents/
+.codex/
+.sixth/
+
+# Local documents and extracted Office files not needed for the app

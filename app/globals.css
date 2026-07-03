@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --font-archivo: "Archivo Variable", system-ui, sans-serif;
+  --font-plex-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #131211;
+  color: #e9e6e0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+::selection {
+  background: #e8a33d;
+  color: #131211;
+}
+
+/* Slim scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #131211;
+}
+::-webkit-scrollbar-thumb {
+  background: #292621;
+  border-radius: 8px;
+  border: 2px solid #131211;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a362f;
+}
+
+/* Animated underline for links — draws left to right on hover */
+.u-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+  padding-bottom: 2px;
+}
+.u-link:hover,
+.u-link:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* Claims backed by evidence — dotted underline, tooltip carries the receipt */
+.receipt {
+  cursor: help;
+  border-bottom: 1px dotted #6f6a61;
+}
+.receipt:hover {
+  border-bottom-color: #e8a33d;
+}
+
+/* Tabular figures for all metric values */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #e8a33d;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
