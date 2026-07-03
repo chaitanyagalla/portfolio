@@ -1,20 +1,16 @@
-// ---------------------------------------------------------------
-// All portfolio content lives here. Swap the placeholder URLs
-// (https://example.com/...) with real links when ready.
-// ---------------------------------------------------------------
 
 export const links = {
   email: "chaitanyagalla1813@gmail.com",
-  github: "https://example.com/github", // TODO: real GitHub
-  linkedin: "https://example.com/linkedin", // TODO: real LinkedIn
-  x: "https://example.com/x", // TODO: real X profile
-  resume: "https://example.com/resume.pdf", // TODO: hosted resume
+  github: "https://github.com/chaitanyagalla", 
+  linkedin: "https://www.linkedin.com/in/chaitanya-galla-47a764330/",
+  x: "https://x.com/Chaitanyagalla",
+  resume: "https://drive.google.com/file/d/13SUJeL6viuUY0YlDWnkYCuqWp-N2FKSm/view?usp=sharing", 
 };
 
 export type Project = {
   slug: string;
   name: string;
-  meta: string; // year · kind, set in the entry header
+  meta: string; 
   tagline: string;
   description: string;
   metrics: { value: string; label: string }[];
