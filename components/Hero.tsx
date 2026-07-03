@@ -48,7 +48,7 @@ export default function Hero() {
           variants={rise}
           className="mt-7 max-w-4xl text-[2.6rem] font-semibold leading-[1.04] tracking-display sm:text-6xl lg:text-[4.4rem]"
         >
-          I build full-stack apps — and the{" "}
+          I build full-stack apps powered by{" "}
           <span className="text-amber">AI agents</span> that run inside them.
         </motion.h1>
 
