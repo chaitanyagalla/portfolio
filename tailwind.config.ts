@@ -9,21 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#131211", // page — warm graphite, not pure black
-        well: "#0C0B0A", // terminal inset, darker than the page
-        line: "#292621", // hairline rules
-        fog: "#E9E6E0", // primary text, warm
-        mist: "#A49F96", // secondary text
-        dim: "#6F6A61", // tertiary text
-        amber: "#E8A33D", // single accent — phosphor amber
-        ok: "#8CC97F", // ANSI green, terminal output only
+        ink: "rgb(var(--color-ink) / <alpha-value>)",
+        well: "rgb(var(--color-well) / <alpha-value>)",
+        line: "rgb(var(--color-line) / <alpha-value>)",
+        fog: "rgb(var(--color-fog) / <alpha-value>)",
+        mist: "rgb(var(--color-mist) / <alpha-value>)",
+        dim: "rgb(var(--color-dim) / <alpha-value>)",
+        amber: "rgb(var(--color-amber) / <alpha-value>)",
+        ok: "rgb(var(--color-ok) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-archivo)", "system-ui", "sans-serif"],
         mono: ["var(--font-plex-mono)", "ui-monospace", "monospace"],
       },
       letterSpacing: {
-        display: "-0.035em",
+        display: "0em",
       },
       keyframes: {
         blink: {

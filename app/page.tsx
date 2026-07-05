@@ -1,8 +1,9 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import Experience from "@/components/Experience";
+import Tools from "@/components/Tools";
 import Projects from "@/components/Projects";
-import About from "@/components/About";
-import BuildLog from "@/components/BuildLog";
+import Blogs from "@/components/Blogs";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -10,9 +11,10 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
-      <Projects />
-      <About />
-      <BuildLog />
+      <Experience />
+      <Tools />
+      <Projects limit={2} />
+      <Blogs limit={2} />
       <Contact />
     </main>
   );

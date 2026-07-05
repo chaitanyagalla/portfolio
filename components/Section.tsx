@@ -1,27 +1,48 @@
 import { ReactNode } from "react";
 
-/**
- * Ledger section shell: full-width hairline rule on top, a narrow
- * left gutter with a sticky mono label, content in the right column.
- */
 export default function Section({
   id,
   label,
+  title,
+  description,
+  icon,
+  action,
   children,
 }: {
   id: string;
   label: string;
+  title: string;
+  description: string;
+  icon?: ReactNode;
+  action?: ReactNode;
   children: ReactNode;
 }) {
   return (
     <section id={id} className="scroll-mt-16 border-t border-line">
-      <div className="mx-auto grid max-w-6xl gap-x-12 gap-y-8 px-6 py-20 sm:py-24 lg:grid-cols-[180px_1fr]">
-        <div className="self-start lg:sticky lg:top-24">
-          <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-dim">
-            {label}
-          </h2>
+      <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
+        <div className="min-w-0">
+          <div className="mb-10">
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex min-w-0 items-center gap-2 text-dim">
+                {icon ? <span className="shrink-0 text-dim">{icon}</span> : null}
+                <h2 className="font-mono text-sm uppercase tracking-[0.18em]">
+                  {label}
+                </h2>
+              </div>
+              {action ? <div className="shrink-0">{action}</div> : null}
+            </div>
+
+            <div className="mt-7">
+              <h3 className="max-w-3xl text-2xl font-semibold leading-tight tracking-display sm:text-[2rem]">
+                {title}
+              </h3>
+              <p className="mt-3 max-w-2xl text-base leading-8 text-mist sm:text-lg">
+                {description}
+              </p>
+            </div>
+          </div>
+          {children}
         </div>
-        <div className="min-w-0">{children}</div>
       </div>
     </section>
   );

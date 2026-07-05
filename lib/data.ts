@@ -1,16 +1,16 @@
-
 export const links = {
   email: "chaitanyagalla1813@gmail.com",
-  github: "https://github.com/chaitanyagalla", 
+  github: "https://github.com/chaitanyagalla",
   linkedin: "https://www.linkedin.com/in/chaitanya-galla-47a764330/",
   x: "https://x.com/Chaitanyagalla",
-  resume: "https://drive.google.com/file/d/13SUJeL6viuUY0YlDWnkYCuqWp-N2FKSm/view?usp=sharing", 
+  resume:
+    "https://drive.google.com/file/d/13SUJeL6viuUY0YlDWnkYCuqWp-N2FKSm/view?usp=sharing",
 };
 
 export type Project = {
   slug: string;
   name: string;
-  meta: string; 
+  meta: string;
   tagline: string;
   description: string;
   metrics: { value: string; label: string }[];
@@ -23,22 +23,22 @@ export const projects: Project[] = [
   {
     slug: "job-scout-agent",
     name: "Job Scout Agent",
-    meta: "2026 · AI agent",
-    tagline: "An AI agent that reads your resume, then hunts jobs for you.",
+    meta: "2026 - AI Agent",
+    tagline: "An agent that turns a resume into a focused job search workflow.",
     description:
-      "Single-agent system built on Google ADK + Gemini 2.0 Flash orchestrating 8 tools — resume parsing, Apify scrapers, Adzuna API, and a deterministic 0–100 match scorer with explainable verdicts. Deployed via FastAPI with ADK auto-generated endpoints.",
+      "Built with Google ADK, Gemini, FastAPI, Apify, Adzuna, and structured resume parsing. The system reads a candidate profile, searches relevant boards, filters weak matches, and returns explainable recommendations without pretending the work is magic.",
     metrics: [
-      { value: "8", label: "tools orchestrated" },
-      { value: "3-layer", label: "resume parse pipeline" },
-      { value: "5", label: "countries searched" },
+      { value: "8", label: "Integrated tools" },
+      { value: "3", label: "Resume parsing layers" },
+      { value: "5", label: "Search regions" },
     ],
     stack: [
-      { name: "Google ADK", tip: "Agent framework — sessions, tools, state" },
-      { name: "Gemini 2.0", tip: "Reasoning + Vision fallback for scanned PDFs" },
-      { name: "FastAPI", tip: "Serves ADK auto-generated endpoints" },
-      { name: "LiteLLM", tip: "Groq / NVIDIA NIM routing with fallback" },
-      { name: "Pydantic", tip: "Validated agent I/O — zero-garbage extraction" },
-      { name: "Apify", tip: "Scraping actors for job boards" },
+      { name: "Google ADK", tip: "Agent framework for sessions, tools, and state" },
+      { name: "Gemini", tip: "Reasoning plus vision fallback for scanned PDFs" },
+      { name: "FastAPI", tip: "API surface for the agent workflow" },
+      { name: "LiteLLM", tip: "Provider routing with fallback support" },
+      { name: "Pydantic", tip: "Validated input and output models" },
+      { name: "Apify", tip: "Job board collection through scraping actors" },
     ],
     live: "https://example.com/job-scout-live",
     code: "https://example.com/job-scout-code",
@@ -46,22 +46,22 @@ export const projects: Project[] = [
   {
     slug: "skillhigh-crm",
     name: "SkillHigh CRM",
-    meta: "2025 · production system",
-    tagline: "Production CRM where search got 70% faster.",
+    meta: "2025 - Production System",
+    tagline: "A CRM built for faster lead search and cleaner team workflows.",
     description:
-      "Full-stack CRM for lead management, sales tracking and workflow automation across 500+ user records. Redis caching + PostgreSQL indexing cut query load by 60%; role-based dashboards for 3 user roles, shipped on AWS EC2 with zero-downtime CI/CD.",
+      "Designed and shipped a full-stack CRM for lead management, sales tracking, and role-based dashboards. The product used Redis caching, PostgreSQL indexing, and an AWS deployment flow that made day-to-day sales work faster and easier to operate.",
     metrics: [
-      { value: "800→240ms", label: "search response time" },
-      { value: "60%", label: "query load reduction" },
-      { value: "15+", label: "searchable fields" },
+      { value: "800ms to 240ms", label: "Search response time" },
+      { value: "60%", label: "Lower query load" },
+      { value: "3", label: "User roles" },
     ],
     stack: [
-      { name: "React", tip: "TypeScript + ShadCN UI component system" },
+      { name: "React", tip: "TypeScript UI with reusable components" },
       { name: "Express", tip: "REST API with layered middleware" },
-      { name: "Prisma", tip: "Typed ORM over PostgreSQL (Neon)" },
-      { name: "PostgreSQL", tip: "Compound indexes for hot query paths" },
-      { name: "Redis", tip: "Caching + rate limiting" },
-      { name: "AWS EC2", tip: "Zero-downtime deploys via GitHub Actions" },
+      { name: "Prisma", tip: "Typed ORM over PostgreSQL" },
+      { name: "PostgreSQL", tip: "Indexes for frequent CRM queries" },
+      { name: "Redis", tip: "Caching and rate limiting" },
+      { name: "AWS EC2", tip: "Production deployment target" },
     ],
     live: "https://example.com/skillhigh-live",
     code: "https://example.com/skillhigh-code",
@@ -69,21 +69,21 @@ export const projects: Project[] = [
   {
     slug: "videosave",
     name: "VideoSave",
-    meta: "2025 · web app",
-    tagline: "Multi-platform video downloader with live progress streaming.",
+    meta: "2025 - Web App",
+    tagline: "A multi-platform video downloader with live progress updates.",
     description:
-      "Real-time downloader for YouTube, Instagram and X. Socket.io streams download progress live to the client; drag-and-drop URL intake, persistent history, and a hardened API layer with Helmet, CORS, rate limiting and Zod hitting 99%+ validation coverage.",
+      "Created a downloader for YouTube, Instagram, and X with drag-and-drop URL intake, persistent history, and Socket.io progress streaming. The API layer uses validation, rate limits, and security middleware so the experience feels responsive without being fragile.",
     metrics: [
-      { value: "3", label: "platforms supported" },
-      { value: "99%+", label: "request validation" },
-      { value: "live", label: "progress via WebSockets" },
+      { value: "3", label: "Supported platforms" },
+      { value: "Live", label: "Progress streaming" },
+      { value: "99%+", label: "Validated requests" },
     ],
     stack: [
-      { name: "Next.js 14", tip: "App Router + server actions" },
-      { name: "TypeScript", tip: "End-to-end types, client to API" },
-      { name: "Socket.io", tip: "Live download progress streaming" },
+      { name: "Next.js", tip: "App Router and server-side rendering" },
+      { name: "TypeScript", tip: "Types across client and API" },
+      { name: "Socket.io", tip: "Live download progress events" },
       { name: "Prisma", tip: "Persistent download history" },
-      { name: "Zod", tip: "Schema validation on every request" },
+      { name: "Zod", tip: "Schema validation on incoming requests" },
     ],
     live: "https://example.com/videosave-live",
     code: "https://example.com/videosave-code",
@@ -97,86 +97,46 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    label: "AI / Agents",
+    label: "AI And Agents",
     skills: [
-      { name: "Google ADK", tip: "Built and deployed a production agent with it" },
-      { name: "LangChain", tip: "Embeddings + retrieval pipelines" },
-      { name: "LiteLLM", tip: "Multi-provider routing: Groq, NVIDIA NIM, Gemini" },
-      { name: "RAG", tip: "Retrieval-augmented generation patterns" },
-      { name: "Tool Use", tip: "Multi-tool orchestration with validated I/O" },
-      { name: "Prompt Eng.", tip: "Structured outputs, few-shot, eval loops" },
+      { name: "Google ADK", tip: "Built and deployed an agent workflow with it" },
+      { name: "Gemini", tip: "Reasoning and vision fallback for document workflows" },
+      { name: "LangChain", tip: "Retrieval and orchestration patterns" },
+      { name: "LiteLLM", tip: "Multi-provider routing across LLM APIs" },
+      { name: "RAG", tip: "Retrieval-augmented generation workflows" },
+      { name: "Tool Use", tip: "Validated multi-tool agent execution" },
     ],
   },
   {
     label: "Frontend",
     skills: [
-      { name: "React", tip: "Hooks, context, performance patterns" },
-      { name: "Next.js 14", tip: "App Router, RSC, server actions" },
-      { name: "TypeScript", tip: "Strict mode, end-to-end typing" },
-      { name: "Tailwind", tip: "Design systems without the CSS sprawl" },
-      { name: "ShadCN UI", tip: "Accessible primitives, customized" },
+      { name: "React", tip: "Hooks, state, forms, and component architecture" },
+      { name: "Next.js", tip: "App Router, server components, and routing" },
+      { name: "TypeScript", tip: "Typed interfaces across the product" },
+      { name: "Tailwind CSS", tip: "Clean, responsive interfaces" },
+      { name: "ShadCN UI", tip: "Accessible primitives and product UI patterns" },
     ],
   },
   {
     label: "Backend",
     skills: [
-      { name: "Node.js", tip: "Express APIs serving 10K+ daily requests" },
+      { name: "Node.js", tip: "APIs, auth, jobs, and integrations" },
+      { name: "Express", tip: "REST services with middleware and validation" },
       { name: "FastAPI", tip: "Python APIs for AI services" },
-      { name: "Prisma", tip: "Typed ORM, migrations, Neon Postgres" },
-      { name: "Socket.io", tip: "Real-time bidirectional streaming" },
-      { name: "REST Design", tip: "Versioning, pagination, RBAC" },
+      { name: "Prisma", tip: "Typed data access and migrations" },
+      { name: "Socket.io", tip: "Real-time bidirectional events" },
     ],
   },
   {
-    label: "Data",
+    label: "Data And Cloud",
     skills: [
-      { name: "PostgreSQL", tip: "Indexing + query optimization (800→240ms)" },
-      { name: "MongoDB", tip: "Mongoose ODM, aggregation pipelines" },
-      { name: "Redis", tip: "Caching + rate limiting, 60% load cut" },
+      { name: "PostgreSQL", tip: "Indexes, relational schema design, and queries" },
+      { name: "MongoDB", tip: "Document models and aggregation pipelines" },
+      { name: "Redis", tip: "Caching, rate limits, and hot path performance" },
+      { name: "AWS EC2", tip: "Production hosting and deployment" },
+      { name: "Docker", tip: "Containerized app builds" },
+      { name: "GitHub Actions", tip: "CI/CD pipelines and automated releases" },
     ],
-  },
-  {
-    label: "Cloud & DevOps",
-    skills: [
-      { name: "AWS EC2", tip: "Production deploys with zero downtime" },
-      { name: "GCP Cloud Run", tip: "Containerized agent deployment" },
-      { name: "Docker", tip: "Multi-stage builds, slim images" },
-      { name: "GitHub Actions", tip: "CI/CD pipelines, automated releases" },
-    ],
-  },
-];
-
-export type LogEntry = {
-  date: string;
-  title: string;
-  body: string;
-  tag: string;
-};
-
-export const buildLog: LogEntry[] = [
-  {
-    date: "2026-06",
-    title: "Shipped deterministic job-match scoring",
-    body: "Replaced LLM-only ranking with a 4-signal weighted engine over a 100+ skill ontology. Same resume, same jobs, same score — every run. Explainable verdicts with hard-blocker flags.",
-    tag: "job-scout-agent",
-  },
-  {
-    date: "2026-05",
-    title: "3-layer resume parsing with vision fallback",
-    body: "Local PDF extraction → LiteLLM via Groq → Gemini Vision for scanned resumes. Pydantic models reject garbage before it hits the agent. Parse success across every format I've thrown at it.",
-    tag: "job-scout-agent",
-  },
-  {
-    date: "2026-03",
-    title: "50+ YouTube Shorts, zero manual steps",
-    body: "End-to-end pipeline: Groq scripts → Edge TTS → MoviePy scenes → auto-upload via YouTube Data API. SQLite-backed retries keep uptime at 95%+.",
-    tag: "shorts-automation",
-  },
-  {
-    date: "2026-01",
-    title: "Cut CRM search from 800ms to 240ms",
-    body: "Compound indexes on hot query paths + Redis cache in front of PostgreSQL. 60% less query load with 500+ user records in production.",
-    tag: "skillhigh-crm",
   },
 ];
 
@@ -184,15 +144,25 @@ export const experience = [
   {
     role: "Full Stack Developer",
     org: "SkillHigh",
-    period: "Jul 2025 — Mar 2026",
+    period: "Jul 2025 - Mar 2026",
     summary:
-      "Architected a production CRM end-to-end: React + TypeScript frontend, Express + Prisma + PostgreSQL backend, Redis caching, AWS EC2 with zero-downtime CI/CD.",
+      "Built and maintained a production CRM with React, TypeScript, Express, Prisma, PostgreSQL, Redis, and AWS EC2. Focused on search performance, role-based dashboards, and reliable deployment workflows.",
+    bullets: [
+      "Built CRM dashboards, lead workflows, and role-based screens with React and TypeScript.",
+      "Improved common search paths with PostgreSQL indexes and Redis caching.",
+      "Shipped backend APIs with Express, Prisma, authentication, validation, and deployment support.",
+    ],
   },
   {
     role: "Full Stack Developer Intern",
     org: "SkillHigh",
-    period: "Mar 2025 — Jun 2025",
+    period: "Mar 2025 - Jun 2025",
     summary:
-      "Built a MERN hospital management system with JWT auth, granular RBAC across 3 roles, and Redis-cached APIs handling 10K+ daily calls.",
+      "Developed a MERN hospital management system with JWT authentication, role-based access, Redis-cached APIs, and clean operational flows for staff, doctors, and admins.",
+    bullets: [
+      "Created patient, doctor, and admin flows for a hospital management product.",
+      "Implemented JWT authentication and role-based access across core routes.",
+      "Added Redis-backed API caching for frequently requested data.",
+    ],
   },
 ];
