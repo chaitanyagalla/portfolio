@@ -1,35 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Reveal from "./Reveal";
 import { links } from "@/lib/data";
 
 const COPYRIGHT_YEAR = 2026;
-
-/** Live clock in Hyderabad time — small proof there's a person here. */
-function LocalTime() {
-  const [time, setTime] = useState("");
-
-  useEffect(() => {
-    const fmt = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Asia/Kolkata",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-    });
-    const tick = () => setTime(fmt.format(new Date()));
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  return (
-    <span className="tnum" suppressHydrationWarning>
-      {time || "--:--:--"}
-    </span>
-  );
-}
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -40,49 +15,45 @@ export default function Contact() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard unavailable — the mailto link still works
+      // The mailto link remains available when clipboard access is blocked.
     }
   };
 
   return (
     <section id="contact" className="scroll-mt-16 border-t border-line">
-      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
+      <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
         <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-dim">
+          <p className="font-mono text-sm uppercase tracking-[0.18em] text-dim">
             Contact
           </p>
-          <h2 className="mt-6 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-display sm:text-5xl">
-            Hiring for full-stack or agent engineering? Let&apos;s talk.
+          <h2 className="mt-7 max-w-3xl text-3xl font-semibold leading-tight tracking-display sm:text-4xl">
+            Build the product. Make it reliable. Ship it clean.
           </h2>
-          <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-mist">
-            Remote or hybrid. I reply fast — usually the same day.
+          <p className="mt-5 max-w-2xl text-base leading-8 text-mist sm:text-lg">
+            I am looking for full-stack, backend, and AI agent work where the
+            product needs ownership, speed, and careful engineering.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-baseline gap-x-6 gap-y-3">
-            <a
-              href={`mailto:${links.email}`}
-              className="u-link break-all text-xl font-semibold tracking-tight text-amber sm:text-2xl"
-            >
-              {links.email}
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <a href={`mailto:${links.email}`} className="btn-primary w-full sm:w-auto">
+              Start A Conversation
             </a>
-            <button
-              onClick={copyEmail}
-              className="font-mono text-[13px] text-dim transition-colors hover:text-fog"
-            >
-              {copied ? "copied ✓" : "[ copy ]"}
+            <button onClick={copyEmail} className="btn-secondary w-full sm:w-auto">
+              {copied ? "Copied" : "Copy Email"}
             </button>
           </div>
         </Reveal>
 
-        <footer className="mt-24 grid gap-6 border-t border-line pt-8 sm:grid-cols-3 sm:items-center">
-          <div className="flex gap-6 font-mono text-[13px]">
+        <footer className="mt-20 flex flex-col gap-5 border-t border-line pt-8 text-[13px] text-dim sm:mt-24 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono">Chaitanya Galla / {COPYRIGHT_YEAR}</p>
+          <div className="flex flex-wrap gap-x-6 gap-y-3 font-mono">
             <a
               href={links.github}
               target="_blank"
               rel="noopener noreferrer"
               className="u-link text-mist transition-colors hover:text-fog"
             >
-              github
+              GitHub
             </a>
             <a
               href={links.linkedin}
@@ -90,7 +61,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="u-link text-mist transition-colors hover:text-fog"
             >
-              linkedin
+              LinkedIn
             </a>
             <a
               href={links.x}
@@ -98,16 +69,9 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="u-link text-mist transition-colors hover:text-fog"
             >
-              x / twitter
+              X
             </a>
           </div>
-          <p className="font-mono text-xs text-dim sm:text-center">
-            Hyderabad, IN — <LocalTime /> IST
-          </p>
-          <p className="font-mono text-xs text-dim sm:text-right">
-            © {COPYRIGHT_YEAR} · Archivo &amp; IBM Plex Mono ·
-            Next.js 14
-          </p>
         </footer>
       </div>
     </section>
