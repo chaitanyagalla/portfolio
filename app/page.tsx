@@ -13,7 +13,7 @@ export default function Home() {
       <Hero />
       <Experience />
       <Tools />
-      <Projects limit={2} />
+      <Projects limit={3} />
       <Blogs limit={2} />
       <Contact />
     </main>
