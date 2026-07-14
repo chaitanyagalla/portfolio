@@ -15,8 +15,8 @@ export type Project = {
   description: string;
   metrics: { value: string; label: string }[];
   stack: { name: string; tip: string }[];
-  live: string;
-  code: string;
+  demoVideo?: string;
+  code?: string;
 };
 
 export const projects: Project[] = [
@@ -40,8 +40,8 @@ export const projects: Project[] = [
       { name: "Pydantic", tip: "Validated input and output models" },
       { name: "Apify", tip: "Job board collection through scraping actors" },
     ],
-    live: "https://example.com/job-scout-live",
-    code: "https://example.com/job-scout-code",
+    demoVideo: "https://www.youtube.com/watch?v=LSoEIB8Hcn8",
+    code: "https://github.com/chaitanyagalla/job_scout_agent.git",
   },
   {
     slug: "skillhigh-crm",
@@ -63,8 +63,9 @@ export const projects: Project[] = [
       { name: "Redis", tip: "Caching and rate limiting" },
       { name: "AWS EC2", tip: "Production deployment target" },
     ],
-    live: "https://example.com/skillhigh-live",
-    code: "https://example.com/skillhigh-code",
+    demoVideo:
+      "https://drive.google.com/file/d/11c2w-95y1ndB2sWpQJ1vazl2JonX7k9h/view?usp=drive_link",
+    code: "https://github.com/skillhighedu/CRM_backend",
   },
   {
     slug: "videosave",
@@ -85,8 +86,8 @@ export const projects: Project[] = [
       { name: "Prisma", tip: "Persistent download history" },
       { name: "Zod", tip: "Schema validation on incoming requests" },
     ],
-    live: "https://example.com/videosave-live",
-    code: "https://example.com/videosave-code",
+    demoVideo: "https://youtu.be/-Zzo0zGRLeA",
+    code: "https://github.com/chaitanyagalla/videoDownloader.git",
   },
 ];
 

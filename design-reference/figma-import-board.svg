@@ -1,0 +1,150 @@
+<svg width="2400" height="1800" viewBox="0 0 2400 1800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #131211; }
+      .well { fill: #0C0B0A; }
+      .line { stroke: #292621; stroke-width: 1; }
+      .fog { fill: #E9E6E0; }
+      .mist { fill: #A49F96; }
+      .dim { fill: #6F6A61; }
+      .amber { fill: #E8A33D; }
+      .ok { fill: #8CC97F; }
+      .sans { font-family: Archivo, Inter, Arial, sans-serif; }
+      .mono { font-family: "IBM Plex Mono", "Courier New", monospace; }
+      .tiny { font-size: 18px; }
+      .small { font-size: 22px; }
+      .body { font-size: 26px; }
+      .h3 { font-size: 40px; font-weight: 650; }
+      .h2 { font-size: 58px; font-weight: 650; }
+      .h1 { font-size: 84px; font-weight: 650; }
+      .label { font-size: 18px; letter-spacing: 4px; }
+    </style>
+  </defs>
+
+  <rect width="2400" height="1800" fill="#0C0B0A"/>
+  <text x="80" y="82" class="sans h3 fog">Chaitanya Galla Portfolio - Current Design Reference</text>
+  <text x="80" y="124" class="mono small dim">Captured from branch fix/ts-css-declarations at commit 98795f6 on 2026-07-09</text>
+
+  <g transform="translate(80 180)">
+    <rect width="1440" height="1500" class="bg"/>
+    <rect x="0" y="0" width="1440" height="64" fill="#131211" opacity="0.92"/>
+    <line x1="0" y1="64" x2="1440" y2="64" class="line"/>
+    <text x="72" y="41" class="sans small fog">Chaitanya Galla</text>
+    <text x="895" y="41" class="mono tiny mist">work</text>
+    <text x="980" y="41" class="mono tiny mist">about</text>
+    <text x="1077" y="41" class="mono tiny mist">log</text>
+    <text x="1144" y="41" class="mono tiny mist">contact</text>
+    <rect x="1256" y="20" width="96" height="28" fill="none" stroke="#292621"/>
+    <text x="1273" y="40" class="mono tiny mist">resume</text>
+
+    <text x="72" y="180" class="mono small mist">full-stack developer - building AI agents - open to remote and hybrid</text>
+    <text x="72" y="280" class="sans h1 fog">I build full-stack apps powered by</text>
+    <text x="72" y="376" class="sans h1 amber">AI agents</text>
+    <text x="505" y="376" class="sans h1 fog">that run inside them.</text>
+    <text x="72" y="455" class="sans body mist">Production systems with React and Next.js, Node and Python, and agentic AI.</text>
+    <text x="72" y="492" class="sans body mist">APIs at 10K+ daily requests. Search made 70% faster. Agents that actually ship.</text>
+    <text x="72" y="570" class="mono small amber">see the work</text>
+    <text x="245" y="570" class="mono small mist">github</text>
+    <line x1="72" y1="650" x2="1368" y2="650" class="line"/>
+
+    <g transform="translate(72 720)">
+      <rect width="1296" height="370" class="well" stroke="#292621"/>
+      <rect width="1296" height="48" fill="#0C0B0A" stroke="#292621"/>
+      <text x="24" y="31" class="mono tiny dim">chaitanya@dev:~/job-scout - session replay</text>
+      <circle cx="1184" cy="24" r="6" fill="#E8A33D"/>
+      <text x="1202" y="31" class="mono tiny amber">REPLAY</text>
+      <text x="24" y="92" class="mono small fog">$ python -m job_scout --resume chaitanya.pdf</text>
+      <text x="24" y="130" class="mono small dim">[agent] booting google-adk session...</text>
+      <text x="24" y="168" class="mono small mist">[tool] parse_resume(chaitanya.pdf)</text>
+      <text x="24" y="206" class="mono small ok">ok 3-layer pipeline to profile extracted</text>
+      <text x="24" y="244" class="mono small mist">[tool] adzuna.search(role='fullstack + ai', remote=true)</text>
+      <text x="24" y="282" class="mono small ok">ok best match: AI Agent Engineer - score 87/100</text>
+      <text x="24" y="320" class="mono small fog">[agent] verdict: strong fit. apply.</text>
+    </g>
+
+    <g transform="translate(0 1160)">
+      <line x1="0" y1="0" x2="1440" y2="0" class="line"/>
+      <text x="72" y="88" class="mono label dim">WORK - 3 PROJECTS</text>
+      <text x="300" y="88" class="sans h3 fog">Job Scout Agent</text>
+      <text x="1160" y="88" class="mono tiny dim">2026 - AI agent</text>
+      <text x="300" y="130" class="sans body mist">An AI agent that reads your resume, then hunts jobs for you.</text>
+      <text x="300" y="190" class="sans small mist">Google ADK, Gemini, FastAPI, LiteLLM, Pydantic, Apify.</text>
+      <line x1="300" y1="230" x2="1368" y2="230" class="line"/>
+      <text x="300" y="282" class="sans h3 fog">8</text>
+      <text x="300" y="318" class="mono tiny dim">tools orchestrated</text>
+      <text x="565" y="282" class="sans h3 fog">3-layer</text>
+      <text x="565" y="318" class="mono tiny dim">resume parse pipeline</text>
+      <text x="885" y="282" class="sans h3 fog">5</text>
+      <text x="885" y="318" class="mono tiny dim">countries searched</text>
+    </g>
+  </g>
+
+  <g transform="translate(1590 180)">
+    <rect width="390" height="1180" class="bg"/>
+    <rect x="0" y="0" width="390" height="64" fill="#131211"/>
+    <line x1="0" y1="64" x2="390" y2="64" class="line"/>
+    <text x="24" y="40" class="sans tiny fog">Chaitanya Galla</text>
+    <rect x="286" y="18" width="80" height="30" fill="none" stroke="#292621"/>
+    <text x="301" y="39" class="mono tiny mist">resume</text>
+    <text x="24" y="142" class="mono tiny mist">full-stack developer</text>
+    <text x="24" y="215" class="sans h3 fog">I build full-stack</text>
+    <text x="24" y="263" class="sans h3 fog">apps powered by</text>
+    <text x="24" y="311" class="sans h3 amber">AI agents</text>
+    <text x="24" y="370" class="sans small mist">Production systems with React,</text>
+    <text x="24" y="402" class="sans small mist">Next.js, Node, Python, and AI.</text>
+    <text x="24" y="470" class="mono tiny amber">see the work</text>
+    <line x1="24" y1="540" x2="366" y2="540" class="line"/>
+    <rect x="24" y="590" width="342" height="250" class="well" stroke="#292621"/>
+    <rect x="24" y="590" width="342" height="44" class="well" stroke="#292621"/>
+    <text x="40" y="618" class="mono tiny dim">job-scout - replay</text>
+    <text x="40" y="675" class="mono tiny fog">$ python -m job_scout</text>
+    <text x="40" y="710" class="mono tiny mist">[tool] parse_resume()</text>
+    <text x="40" y="745" class="mono tiny ok">ok profile extracted</text>
+    <text x="40" y="780" class="mono tiny ok">ok score 87/100</text>
+    <line x1="0" y1="920" x2="390" y2="920" class="line"/>
+    <text x="24" y="982" class="mono label dim">WORK</text>
+    <text x="24" y="1042" class="sans body fog">Job Scout Agent</text>
+    <text x="24" y="1080" class="sans small mist">AI agent that hunts jobs for you.</text>
+    <text x="24" y="1138" class="sans h3 fog">8</text>
+    <text x="75" y="1135" class="mono tiny dim">tools orchestrated</text>
+  </g>
+
+  <g transform="translate(2030 180)">
+    <text x="0" y="0" class="sans h3 fog">Design Tokens</text>
+    <g transform="translate(0 52)">
+      <rect width="290" height="54" fill="#131211" stroke="#292621"/>
+      <text x="72" y="34" class="mono tiny fog">ink #131211</text>
+      <rect y="74" width="290" height="54" fill="#0C0B0A" stroke="#292621"/>
+      <text x="72" y="108" class="mono tiny fog">well #0C0B0A</text>
+      <rect y="148" width="290" height="54" fill="#292621"/>
+      <text x="72" y="182" class="mono tiny fog">line #292621</text>
+      <rect y="222" width="290" height="54" fill="#E9E6E0"/>
+      <text x="72" y="256" class="mono tiny bg">fog #E9E6E0</text>
+      <rect y="296" width="290" height="54" fill="#A49F96"/>
+      <text x="72" y="330" class="mono tiny bg">mist #A49F96</text>
+      <rect y="370" width="290" height="54" fill="#6F6A61"/>
+      <text x="72" y="404" class="mono tiny fog">dim #6F6A61</text>
+      <rect y="444" width="290" height="54" fill="#E8A33D"/>
+      <text x="72" y="478" class="mono tiny bg">amber #E8A33D</text>
+      <rect y="518" width="290" height="54" fill="#8CC97F"/>
+      <text x="72" y="552" class="mono tiny bg">ok #8CC97F</text>
+    </g>
+
+    <text x="0" y="720" class="sans h3 fog">Component Map</text>
+    <text x="0" y="775" class="mono small mist">01 fixed nav</text>
+    <text x="0" y="815" class="mono small mist">02 hero statement</text>
+    <text x="0" y="855" class="mono small mist">03 terminal replay</text>
+    <text x="0" y="895" class="mono small mist">04 ruled project rows</text>
+    <text x="0" y="935" class="mono small mist">05 metric row</text>
+    <text x="0" y="975" class="mono small mist">06 receipt tooltip</text>
+    <text x="0" y="1015" class="mono small mist">07 skill columns</text>
+    <text x="0" y="1055" class="mono small mist">08 build log rows</text>
+    <text x="0" y="1095" class="mono small mist">09 contact footer</text>
+
+    <text x="0" y="1235" class="sans h3 fog">Redesign Guardrails</text>
+    <text x="0" y="1290" class="sans small mist">Keep proof visible: terminal, metrics, receipts.</text>
+    <text x="0" y="1330" class="sans small mist">Use rules and spacing before adding cards.</text>
+    <text x="0" y="1370" class="sans small mist">Keep amber rare and meaningful.</text>
+    <text x="0" y="1410" class="sans small mist">Preserve fast scanning for recruiters.</text>
+  </g>
+</svg>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Folder } from "lucide-react";
+import { Code2, Folder, Play } from "lucide-react";
 import { Fragment } from "react";
 import Reveal from "./Reveal";
 import Tooltip from "./Tooltip";
@@ -63,24 +63,32 @@ function ProjectList({ limit }: { limit?: number }) {
               ))}
             </p>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary w-full sm:w-auto"
-              >
-                Live Demo
-              </a>
-              <a
-                href={project.code}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary w-full sm:w-auto"
-              >
-                Source
-              </a>
-            </div>
+            {project.demoVideo || project.code ? (
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                {project.demoVideo ? (
+                  <a
+                    href={project.demoVideo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary w-full sm:w-auto"
+                  >
+                    <Play className="h-4 w-4" />
+                    Demo Video
+                  </a>
+                ) : null}
+                {project.code ? (
+                  <a
+                    href={project.code}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary w-full sm:w-auto"
+                  >
+                    <Code2 className="h-4 w-4" />
+                    Source
+                  </a>
+                ) : null}
+              </div>
+            ) : null}
           </article>
         </Reveal>
       ))}
