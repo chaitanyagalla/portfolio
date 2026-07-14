@@ -57,7 +57,7 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex w-full items-center justify-between gap-4 lg:w-auto">
           <Tooltip
             tip="Built by Chaitanya: one product decision and several browser tabs at a time."
             side="bottom"
@@ -73,7 +73,7 @@ export default function Nav() {
             </a>
           </Tooltip>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <Tooltip
               tip="Change the lighting. The bugs remain equally accountable."
               side="bottom"
@@ -101,7 +101,7 @@ export default function Nav() {
           </div>
         </div>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <div className="flex items-center gap-1 rounded-md bg-well/70 p-1">
             {items.map((item) => {
               const Icon = item.icon;
@@ -153,7 +153,7 @@ export default function Nav() {
         </div>
 
         {open ? (
-          <div className="absolute right-4 top-[68px] w-[min(220px,calc(100vw-2rem))] rounded-md border border-line bg-well/98 p-2 shadow-2xl shadow-black/30 md:hidden">
+          <div className="absolute right-4 top-[68px] w-[min(220px,calc(100vw-2rem))] rounded-md border border-line bg-well p-2 shadow-2xl shadow-black/30 lg:hidden">
             {items.map((item) => {
               const Icon = item.icon;
 

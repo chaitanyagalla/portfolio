@@ -62,7 +62,7 @@ export default function Tooltip({
       <span
         id={tooltipId}
         role="tooltip"
-        className={`pointer-events-none absolute z-50 w-max max-w-[240px] rounded-md border border-line bg-well px-3 py-1.5 font-mono text-[11px] leading-snug text-mist opacity-0 shadow-lg transition-all duration-200 group-hover/tip:opacity-100 group-focus-within/tip:opacity-100 ${sideClasses} ${alignClasses}`}
+        className={`pointer-events-none absolute z-50 hidden w-max max-w-[240px] rounded-md border border-line bg-well px-3 py-1.5 font-mono text-[11px] leading-snug text-mist opacity-0 shadow-lg transition-all duration-200 group-hover/tip:opacity-100 group-focus-within/tip:opacity-100 lg:block ${sideClasses} ${alignClasses}`}
       >
         {tip}
         <span
