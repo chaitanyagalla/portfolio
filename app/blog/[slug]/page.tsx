@@ -62,7 +62,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-24">
+    <main className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-3xl">
         <Link href="/blog" className="u-link font-mono text-sm text-mist">
           Back To Blog

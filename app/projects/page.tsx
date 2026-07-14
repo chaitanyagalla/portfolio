@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-24">
+    <main className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
       <Link href="/" className="u-link font-mono text-sm text-mist">
         Back Home
       </Link>

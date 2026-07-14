@@ -111,6 +111,7 @@ export default function Projects({ limit = 2, showSection = true }: ProjectsProp
     <Section
       id="projects"
       label="Projects"
+      labelTip="Ideas meet users here, along with edge cases that skipped the invitation."
       title="Selected builds with real product constraints."
       description="A small set of projects that show how I think about interfaces, APIs, data flows, and AI systems that people can actually use."
       icon={<Folder className="h-5 w-5" />}

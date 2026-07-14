@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Reveal from "./Reveal";
+import Tooltip from "./Tooltip";
 import { links } from "@/lib/data";
 
 const COPYRIGHT_YEAR = 2026;
@@ -21,10 +22,15 @@ export default function Contact() {
 
   return (
     <section id="contact" className="scroll-mt-16 border-t border-line">
-      <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
         <Reveal>
           <p className="font-mono text-sm uppercase tracking-[0.18em] text-dim">
-            Contact
+            <Tooltip
+              tip="The shortest path from interesting work to let's build something."
+              align="start"
+            >
+              <span className="cursor-help">Contact</span>
+            </Tooltip>
           </p>
           <h2 className="mt-7 max-w-3xl text-3xl font-semibold leading-tight tracking-display sm:text-4xl">
             Build the product. Make it reliable. Ship it clean.

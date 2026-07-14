@@ -12,6 +12,7 @@ import {
   Sun,
   X,
 } from "lucide-react";
+import Tooltip from "./Tooltip";
 import { links } from "@/lib/data";
 
 const items = [
@@ -57,23 +58,37 @@ export default function Nav() {
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <div className="flex items-center justify-between gap-4">
-          <a
-            href="#top"
-            className="shrink-0 text-[15px] font-medium tracking-tight text-fog"
-            onClick={() => setOpen(false)}
+          <Tooltip
+            tip="Built by Chaitanya: one product decision and several browser tabs at a time."
+            side="bottom"
+            align="start"
+            interactive
           >
-            Chaitanya Galla
-          </a>
+            <a
+              href="#top"
+              className="shrink-0 text-[15px] font-medium tracking-tight text-fog"
+              onClick={() => setOpen(false)}
+            >
+              Chaitanya Galla
+            </a>
+          </Tooltip>
 
           <div className="flex items-center gap-2 md:hidden">
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="grid h-11 w-11 place-items-center rounded-md border border-line bg-well text-mist transition-colors hover:border-amber hover:text-amber"
-              aria-label="Toggle theme"
+            <Tooltip
+              tip="Change the lighting. The bugs remain equally accountable."
+              side="bottom"
+              align="end"
+              interactive
             >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </button>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="grid h-11 w-11 place-items-center rounded-md border border-line bg-well text-mist transition-colors hover:border-amber hover:text-amber"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </button>
+            </Tooltip>
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
@@ -104,23 +119,37 @@ export default function Nav() {
             })}
           </div>
 
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="grid h-11 w-11 place-items-center rounded-md border border-line bg-well text-mist transition-colors hover:border-amber hover:text-amber"
-            aria-label="Toggle theme"
+          <Tooltip
+            tip="Change the lighting. The bugs remain equally accountable."
+            side="bottom"
+            align="end"
+            interactive
           >
-            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </button>
-          <a
-            href={links.resume}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary min-h-11 px-4 py-2"
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="grid h-11 w-11 place-items-center rounded-md border border-line bg-well text-mist transition-colors hover:border-amber hover:text-amber"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </button>
+          </Tooltip>
+          <Tooltip
+            tip="The formal version of me, with fewer side quests."
+            side="bottom"
+            align="end"
+            interactive
           >
-            <FileText className="h-4 w-4" />
-            Resume
-          </a>
+            <a
+              href={links.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary min-h-11 px-4 py-2"
+            >
+              <FileText className="h-4 w-4" />
+              Resume
+            </a>
+          </Tooltip>
         </div>
 
         {open ? (

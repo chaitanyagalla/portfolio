@@ -49,7 +49,12 @@ export default function Hero() {
           className="mt-7 max-w-4xl text-[2.6rem] font-semibold leading-[1.04] tracking-display text-fog sm:text-6xl lg:text-[4.4rem]"
         >
           I build full-stack apps powered by{" "}
-          <span className="text-amber">AI agents</span> that run inside them.
+          <Tooltip tip="Useful digital teammates: quick with tools, quiet in meetings.">
+            <span className="cursor-help text-amber underline decoration-amber/40 decoration-dotted underline-offset-[6px]">
+              AI agents
+            </span>
+          </Tooltip>{" "}
+          that run inside them.
         </motion.h1>
 
         <motion.p
@@ -73,28 +78,46 @@ export default function Hero() {
         </motion.p>
 
         <motion.div variants={rise} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <a href="#contact" className="btn-primary w-full sm:w-auto">
-            <Mail className="h-4 w-4" />
-            Get In Touch
-          </a>
-          <a
-            href={links.resume}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary w-full sm:w-auto"
+          <Tooltip
+            tip="Opens the inbox portal. I keep the auto-replies on a short leash."
+            className="w-full sm:w-auto"
+            interactive
           >
-            <FileText className="h-4 w-4" />
-            Resume / CV
-          </a>
-          <a
-            href={links.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary w-full sm:w-auto"
+            <a href="#contact" className="btn-primary w-full sm:w-auto">
+              <Mail className="h-4 w-4" />
+              Get In Touch
+            </a>
+          </Tooltip>
+          <Tooltip
+            tip="The formal version of me, with fewer side quests."
+            className="w-full sm:w-auto"
+            interactive
           >
-            <Code2 className="h-4 w-4" />
-            GitHub
-          </a>
+            <a
+              href={links.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary w-full sm:w-auto"
+            >
+              <FileText className="h-4 w-4" />
+              Resume / CV
+            </a>
+          </Tooltip>
+          <Tooltip
+            tip="Code, commits, and occasional evidence of caffeine."
+            className="w-full sm:w-auto"
+            interactive
+          >
+            <a
+              href={links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary w-full sm:w-auto"
+            >
+              <Code2 className="h-4 w-4" />
+              GitHub
+            </a>
+          </Tooltip>
         </motion.div>
       </motion.div>
 

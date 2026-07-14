@@ -51,6 +51,7 @@ export default function Blogs({ limit = 2 }: { limit?: number }) {
     <Section
       id="blogs"
       label="Blogs"
+      labelTip="Lessons from problems I would prefer to solve only once."
       title="Clean notes from the systems I am building."
       description="Short writing about product engineering, agent workflows, and the practical parts that make software easier to trust."
       icon={<PenLine className="h-5 w-5" />}
