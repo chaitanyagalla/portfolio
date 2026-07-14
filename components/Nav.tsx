@@ -5,23 +5,20 @@ import {
   Briefcase,
   FileText,
   Folder,
-  Home,
   Mail,
   Menu,
   Moon,
   PenLine,
   Sun,
-  Wrench,
   X,
 } from "lucide-react";
+import Tooltip from "./Tooltip";
 import { links } from "@/lib/data";
 
 const items = [
-  { label: "Home", href: "#top", icon: Home },
+  { label: "Work", href: "#projects", icon: Folder },
   { label: "Experience", href: "#experience", icon: Briefcase },
-  { label: "Tools", href: "#tools", icon: Wrench },
-  { label: "Blogs", href: "#blogs", icon: PenLine },
-  { label: "Projects", href: "#projects", icon: Folder },
+  { label: "Log", href: "#blogs", icon: PenLine },
   { label: "Contact", href: "#contact", icon: Mail },
 ];
 
@@ -55,53 +52,47 @@ export default function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
         scrolled
-          ? "border border-line-b border border-line-line bg-ink/90 backdrop-blur"
-          : "border border-line-b border border-line-transparent bg-ink/75 backdrop-blur-sm"
+          ? "border-b border-line bg-ink/90 backdrop-blur"
+          : "border-b border-transparent bg-ink/80 backdrop-blur-sm"
       }`}
     >
-      <nav className="relative mx-auto max-w-5xl px-4 py-3 sm:px-6">
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <div className="flex items-center justify-between gap-4">
-          <a
-            href="#top"
-            className="shrink-0 text-[15px] font-semibold uppercase tracking-tight text-fog"
-            onClick={() => setOpen(false)}
+          <Tooltip
+            tip="Built by Chaitanya: one product decision and several browser tabs at a time."
+            side="bottom"
+            align="start"
+            interactive
           >
-            Chaitanya
-          </a>
-
-          <div className="hidden items-center gap-2 md:flex">
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="grid h-11 w-11 place-items-center rounded-md border border-line border border-line-line bg-well text-mist transition-colors hover:border border-line-amber hover:text-amber"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </button>
             <a
-              href={links.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary min-h-11 px-3 py-2"
+              href="#top"
+              className="shrink-0 text-[15px] font-medium tracking-tight text-fog"
+              onClick={() => setOpen(false)}
             >
-              <FileText className="h-4 w-4" />
-              Resume
+              Chaitanya Galla
             </a>
-          </div>
+          </Tooltip>
 
           <div className="flex items-center gap-2 md:hidden">
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="grid h-11 w-11 place-items-center rounded-md border border-line border border-line-line bg-well text-mist transition-colors hover:border border-line-amber hover:text-amber"
-              aria-label="Toggle theme"
+            <Tooltip
+              tip="Change the lighting. The bugs remain equally accountable."
+              side="bottom"
+              align="end"
+              interactive
             >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </button>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="grid h-11 w-11 place-items-center rounded-md border border-line bg-well text-mist transition-colors hover:border-amber hover:text-amber"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </button>
+            </Tooltip>
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              className="grid h-11 w-11 place-items-center rounded-md border border-line border border-line-line bg-well text-mist transition-colors hover:border border-line-amber hover:text-amber"
+              className="grid h-11 w-11 place-items-center rounded-md border border-line bg-well text-mist transition-colors hover:border-amber hover:text-amber"
               aria-label="Toggle navigation"
               aria-expanded={open}
             >
@@ -110,25 +101,8 @@ export default function Nav() {
           </div>
         </div>
 
-        <div className="pointer-events-none absolute left-1/2 top-3 hidden -translate-x-1/2 rounded-md  bg-well/95 p-1   md:flex">
-          {items.slice(0, 5).map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <a
-                key={item.href}
-                href={item.href}
-                className="pointer-events-auto inline-flex min-h-10 items-center gap-2 rounded-md px-3 font-mono text-[13px] text-mist transition-colors hover:bg-line hover:text-fog"
-              >
-                <Icon className="h-4 w-4" />
-                {item.label}
-              </a>
-            );
-          })}
-        </div>
-
-        {open ? (
-          <div className="absolute right-4 top-[68px] w-[min(220px,calc(100vw-2rem))] rounded-md border border-line border border-line-line bg-well/98 p-2 shadow-2xl shadow-black/30 md:hidden">
+        <div className="hidden items-center gap-3 md:flex">
+          <div className="flex items-center gap-1 rounded-md bg-well/70 p-1">
             {items.map((item) => {
               const Icon = item.icon;
 
@@ -136,7 +110,58 @@ export default function Nav() {
                 <a
                   key={item.href}
                   href={item.href}
+                  className="inline-flex min-h-10 items-center gap-2 rounded-md px-3 font-mono text-[13px] text-mist transition-colors hover:bg-line hover:text-fog"
+                >
+                  <Icon className="h-4 w-4" />
+                  {item.label}
+                </a>
+              );
+            })}
+          </div>
+
+          <Tooltip
+            tip="Change the lighting. The bugs remain equally accountable."
+            side="bottom"
+            align="end"
+            interactive
+          >
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="grid h-11 w-11 place-items-center rounded-md border border-line bg-well text-mist transition-colors hover:border-amber hover:text-amber"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </button>
+          </Tooltip>
+          <Tooltip
+            tip="The formal version of me, with fewer side quests."
+            side="bottom"
+            align="end"
+            interactive
+          >
+            <a
+              href={links.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary min-h-11 px-4 py-2"
+            >
+              <FileText className="h-4 w-4" />
+              Resume
+            </a>
+          </Tooltip>
+        </div>
+
+        {open ? (
+          <div className="absolute right-4 top-[68px] w-[min(220px,calc(100vw-2rem))] rounded-md border border-line bg-well/98 p-2 shadow-2xl shadow-black/30 md:hidden">
+            {items.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <a
+                  key={item.href}
                   onClick={() => setOpen(false)}
+                  href={item.href}
                   className="flex min-h-12 items-center gap-3 rounded-md px-4 text-base font-semibold text-mist transition-colors hover:bg-line hover:text-fog"
                 >
                   <Icon className="h-5 w-5" />
@@ -149,7 +174,7 @@ export default function Nav() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="mt-2 flex min-h-12 items-center gap-3 rounded-md border border-line border border-line-line px-4 text-base font-semibold text-amber transition-colors hover:border border-line-amber hover:bg-line"
+              className="btn-primary mt-2 flex min-h-12 items-center justify-start gap-3 px-4 text-base font-semibold"
             >
               <FileText className="h-5 w-5" />
               Resume
