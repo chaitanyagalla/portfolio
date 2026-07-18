@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Code2, FileText, Mail } from "lucide-react";
+import { FileText, Mail, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import TerminalDemo from "./TerminalDemo";
 import Tooltip from "./Tooltip";
@@ -77,6 +77,11 @@ export default function Hero() {
           keep using.
         </motion.p>
 
+        <motion.p variants={rise} className="mt-6 max-w-2xl text-base leading-8 text-mist">
+          I was drawn to agents because they turn backend systems into products
+          that can decide, act, and show their work.
+        </motion.p>
+
         <motion.div variants={rise} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <Tooltip
             tip="Opens the inbox portal. I keep the auto-replies on a short leash."
@@ -103,21 +108,40 @@ export default function Hero() {
               Resume / CV
             </a>
           </Tooltip>
-          <Tooltip
-            tip="Code, commits, and occasional evidence of caffeine."
-            className="w-full sm:w-auto"
-            interactive
+        </motion.div>
+
+        <motion.div
+          variants={rise}
+          className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 font-mono text-xs text-dim"
+        >
+          <span className="inline-flex items-center gap-2">
+            <MapPin className="h-3.5 w-3.5" />
+            Hyderabad, India
+          </span>
+          <a
+            href={links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="u-link text-mist transition-colors hover:text-fog"
           >
-            <a
-              href={links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary w-full sm:w-auto"
-            >
-              <Code2 className="h-4 w-4" />
-              GitHub
-            </a>
-          </Tooltip>
+            LinkedIn
+          </a>
+          <a
+            href={links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="u-link text-mist transition-colors hover:text-fog"
+          >
+            GitHub
+          </a>
+          <a
+            href={links.x}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="u-link text-mist transition-colors hover:text-fog"
+          >
+            X
+          </a>
         </motion.div>
       </motion.div>
 
@@ -137,7 +161,7 @@ export default function Hero() {
       >
         <TerminalDemo />
         <p className="mt-4 font-mono text-xs text-dim">
-          A real run of my Job Scout Agent, replayed - not a mockup. Source
+          A real run of my Job Scout Agent, replayed — not a mockup. Source
           below.
         </p>
       </motion.div>

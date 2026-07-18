@@ -14,7 +14,7 @@ export default function Experience() {
       id="experience"
       label="Experience"
       labelTip="Where tutorials ended, production began, and ownership got very real."
-      title="Hands-on product engineering in real teams."
+      title="From internship code to production ownership."
       description="A concise view of where I worked, what I owned, and the practical engineering work behind each role."
       icon={<Briefcase className="h-5 w-5" />}
     >

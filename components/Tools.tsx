@@ -35,6 +35,22 @@ import Section from "./Section";
 import Tooltip from "./Tooltip";
 import { skillGroups } from "@/lib/data";
 
+const featuredSkills = new Set([
+  "Google ADK",
+  "Gemini",
+  "LiteLLM",
+  "RAG",
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Node.js",
+  "Express",
+  "FastAPI",
+  "PostgreSQL",
+  "Redis",
+  "AWS EC2",
+]);
+
 type ToolVisual =
   | { kind: "brand"; icon: SimpleIcon; color?: string }
   | { kind: "concept"; icon: LucideIcon; color: string };
@@ -117,8 +133,8 @@ export default function Tools() {
       id="tools"
       label="Tools"
       labelTip="A practical toolbox, chosen by shipped work rather than logo collecting."
-      title="A practical stack for apps, APIs, and agent workflows."
-      description="Compact tools I use across frontend, backend, data, cloud, and AI systems."
+      title="A focused stack, tied to the work above."
+      description="The tools I use most across product interfaces, backend systems, data, deployment, and inspectable AI workflows. The resume carries the complete list."
       icon={<Wrench className="h-5 w-5" />}
     >
       <div className="space-y-8">
@@ -129,7 +145,7 @@ export default function Tools() {
                 {group.label}
               </h4>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {group.skills.map((skill) => (
+                {group.skills.filter((skill) => featuredSkills.has(skill.name)).map((skill) => (
                   <ToolPill key={skill.name} name={skill.name} tip={skill.tip} />
                 ))}
               </div>

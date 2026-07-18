@@ -2,9 +2,10 @@ import Link from "next/link";
 import { ProjectsContent } from "@/components/Projects";
 
 export const metadata = {
-  title: "Projects - Chaitanya Galla",
+  title: "Projects",
   description:
     "Selected full-stack, backend, and AI agent projects by Chaitanya Galla.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {

@@ -1,17 +1,21 @@
 # Chaitanya Portfolio
 
-A terminal-inspired personal portfolio for Chaitanya Galla, built with Next.js,
-TypeScript, Tailwind CSS, and Framer Motion. The site focuses on full-stack
-engineering, AI agent work, production metrics, experience, and a build log.
+A recruiter-focused personal portfolio for Chaitanya Galla, built with Next.js,
+TypeScript, Tailwind CSS, and Framer Motion. The site focuses on measurable
+full-stack outcomes, inspectable AI-agent work, project evidence, and clear
+hiring paths.
 
 ## Highlights
 
-- Animated hero with a replayed Job Scout Agent terminal run
-- Project case studies with metrics, stack notes, live links, and source links
-- About, skills, experience, build log, and contact sections
+- Outcome-led hero with direct email, project, and resume actions
+- Dedicated project case studies with architecture, decisions, metrics, demos,
+  evidence notes, and source links
+- About, focused skills, experience, technical writing, and recruiter-ready contact sections
+- Job Scout Agent terminal replay inside its relevant case study
 - Content-driven portfolio data in `lib/data.ts`
 - Warm dark "Terminal Dusk" visual system with accessible focus states
-- Motion effects that respect `prefers-reduced-motion`
+- Accessible text contrast and essential content that remains visible before hydration
+- Open Graph artwork, Person structured data, robots rules, and a generated sitemap
 
 ## Tech Stack
 
@@ -45,7 +49,9 @@ Open `http://localhost:3000`.
 | --- | --- |
 | `app/` | App Router pages, layout, metadata, and global styles |
 | `components/` | Portfolio sections and reusable UI components |
-| `lib/data.ts` | Portfolio content: links, projects, skills, logs, and experience |
+| `app/projects/[slug]/` | Static project case-study routes |
+| `lib/data.ts` | Portfolio content: links, project evidence, skills, and experience |
+| `lib/site.ts` | Canonical production URL and shared metadata description |
 | `tailwind.config.ts` | Theme tokens, font families, colors, and animation config |
 | `app/globals.css` | Base styles, scrollbar, link effects, focus states, and motion settings |
 
@@ -54,9 +60,8 @@ Open `http://localhost:3000`.
 Most editable content lives in `lib/data.ts`:
 
 - `links`: email, GitHub, LinkedIn, X, and resume URLs
-- `projects`: case studies, metrics, stack notes, live demos, and source links
+- `projects`: case studies, result/scope metrics, architecture, decisions, demos, and source links
 - `skillGroups`: grouped skills with tooltip notes
-- `buildLog`: dated updates and build-in-public notes
 - `experience`: roles, organizations, periods, and summaries
 
 Replace any `https://example.com/...` placeholder URLs before publishing.
@@ -79,8 +84,12 @@ Fonts are configured in `app/layout.tsx`, `app/globals.css`, and
 
 ## Deploy
 
-The app is ready for Vercel:
+The app is ready for Vercel. Canonical URLs use `NEXT_PUBLIC_SITE_URL` when it
+is configured and otherwise use Vercel's `VERCEL_PROJECT_PRODUCTION_URL` system
+variable. Local builds fall back to `http://localhost:3000`.
 
 1. Push the project to GitHub.
 2. Create a new Vercel project from the repository.
-3. Deploy with the default Next.js settings.
+3. Set `NEXT_PUBLIC_SITE_URL` to the final custom domain if you have one, or
+   enable Vercel system environment variables.
+4. Deploy with the default Next.js settings.

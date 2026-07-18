@@ -2,9 +2,10 @@ import Link from "next/link";
 import { blogs } from "@/lib/blogs";
 
 export const metadata = {
-  title: "Blog - Chaitanya Galla",
+  title: "Blog",
   description:
     "Clean technical notes on full-stack development, AI agent workflows, and product engineering.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {

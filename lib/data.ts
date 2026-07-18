@@ -3,8 +3,7 @@ export const links = {
   github: "https://github.com/chaitanyagalla",
   linkedin: "https://www.linkedin.com/in/chaitanya-galla-47a764330/",
   x: "https://x.com/Chaitanyagalla",
-  resume:
-    "https://drive.google.com/file/d/13SUJeL6viuUY0YlDWnkYCuqWp-N2FKSm/view?usp=sharing",
+  resume: "/chaitanya-galla-resume.pdf",
 };
 
 export type Project = {
@@ -13,7 +12,15 @@ export type Project = {
   meta: string;
   tagline: string;
   description: string;
-  metrics: { value: string; label: string }[];
+  role: string;
+  status: string;
+  problem: string;
+  solution: string;
+  metrics: { value: string; label: string; kind: "Result" | "Scope" }[];
+  impact: string[];
+  decisions: { title: string; description: string }[];
+  architecture: { label: string; description: string }[];
+  evidenceNote: string;
   stack: { name: string; tip: string }[];
   demoVideo?: string;
   code?: string;
@@ -23,15 +30,53 @@ export const projects: Project[] = [
   {
     slug: "job-scout-agent",
     name: "Job Scout Agent",
-    meta: "2026 - AI Agent",
+    meta: "2026 — AI Agent",
     tagline: "An agent that turns a resume into a focused job search workflow.",
     description:
       "Built with Google ADK, Gemini, FastAPI, Apify, Adzuna, and structured resume parsing. The system reads a candidate profile, searches relevant boards, filters weak matches, and returns explainable recommendations without pretending the work is magic.",
+    role: "Sole developer · Agent architecture, API, scoring, and integrations",
+    status: "Public working build",
+    problem:
+      "Resumes arrive in inconsistent formats, job listings are scattered across sources, and a single unexplained AI score is difficult to trust. The workflow needed resilient parsing, structured search, and recommendations a candidate could inspect.",
+    solution:
+      "I designed a local-first parsing chain with model and vision fallbacks, validated every profile with Pydantic, orchestrated job-source tools through Google ADK, and kept the final match score deterministic and explainable.",
     metrics: [
-      { value: "8", label: "Integrated tools" },
-      { value: "3", label: "Resume parsing layers" },
-      { value: "5", label: "Search regions" },
+      { value: "8", label: "Integrated tools", kind: "Scope" },
+      { value: "3", label: "Resume parsing layers", kind: "Scope" },
+      { value: "4", label: "Explainable scoring signals", kind: "Scope" },
     ],
+    impact: [
+      "Parses standard PDFs locally before spending an LLM or vision call.",
+      "Validates extracted profiles before any search or scoring step begins.",
+      "Surfaces skill coverage, title alignment, experience gaps, keyword overlap, and hard blockers separately.",
+      "Searches across five countries through Adzuna and Apify-backed sources.",
+    ],
+    decisions: [
+      {
+        title: "Local extraction first",
+        description:
+          "Clean PDFs stay fast and private; LiteLLM and Gemini Vision are fallbacks for documents that need more interpretation.",
+      },
+      {
+        title: "The model does not invent the score",
+        description:
+          "Four explicit signals feed a deterministic 0–100 calculation, so a recommendation can be checked and debugged.",
+      },
+      {
+        title: "Tool failures remain visible",
+        description:
+          "Fallback sources, validated responses, and session state keep a failed scraper or incomplete field from becoming a confident answer.",
+      },
+    ],
+    architecture: [
+      { label: "Resume", description: "PDF intake and local text extraction" },
+      { label: "Profile", description: "Fallback parsing plus Pydantic validation" },
+      { label: "Search", description: "Google ADK coordinates Adzuna and Apify" },
+      { label: "Match", description: "Four deterministic scoring signals" },
+      { label: "Explain", description: "Ranked roles, gaps, and blocker flags" },
+    ],
+    evidenceNote:
+      "These numbers describe tested engineering scope, not claimed hiring outcomes. The demo and public source show the current workflow.",
     stack: [
       { name: "Google ADK", tip: "Agent framework for sessions, tools, and state" },
       { name: "Gemini", tip: "Reasoning plus vision fallback for scanned PDFs" },
@@ -41,20 +86,58 @@ export const projects: Project[] = [
       { name: "Apify", tip: "Job board collection through scraping actors" },
     ],
     demoVideo: "https://www.youtube.com/watch?v=LSoEIB8Hcn8",
-    code: "https://github.com/chaitanyagalla/job_scout_agent.git",
+    code: "https://github.com/chaitanyagalla/job_scout_agent",
   },
   {
     slug: "skillhigh-crm",
     name: "SkillHigh CRM",
-    meta: "2025 - Production System",
+    meta: "2025 — Production System",
     tagline: "A CRM built for faster lead search and cleaner team workflows.",
     description:
       "Designed and shipped a full-stack CRM for lead management, sales tracking, and role-based dashboards. The product used Redis caching, PostgreSQL indexing, and an AWS deployment flow that made day-to-day sales work faster and easier to operate.",
+    role: "Full-stack developer · Product UI, APIs, search performance, and deployment",
+    status: "Production company project",
+    problem:
+      "Sales users needed to find and filter leads without repeated requests or slow database scans interrupting the workflow. The system also needed distinct dashboards and permissions for three user roles.",
+    solution:
+      "I treated search as one browser-to-database path: debounced input reduced unnecessary requests, PostgreSQL indexes supported the real filter patterns, Redis cached repeated reads, and the application shipped through an AWS EC2 deployment workflow.",
     metrics: [
-      { value: "800ms to 240ms", label: "Search response time" },
-      { value: "60%", label: "Lower query load" },
-      { value: "3", label: "User roles" },
+      { value: "800ms → 240ms", label: "Search response time", kind: "Result" },
+      { value: "60%", label: "Lower repeated query load", kind: "Result" },
+      { value: "500+", label: "CRM records supported", kind: "Scope" },
     ],
+    impact: [
+      "Improved common search response time by 70 percent.",
+      "Reduced repeated database query load with debouncing and Redis caching.",
+      "Supported filtering across more than 15 lead fields.",
+      "Delivered role-based dashboards for admin, manager, and employee workflows.",
+    ],
+    decisions: [
+      {
+        title: "Reduce demand at the source",
+        description:
+          "Debounced field search prevented the UI from creating server work on every keystroke.",
+      },
+      {
+        title: "Index observed access patterns",
+        description:
+          "PostgreSQL indexes followed the filters and sorts people actually used instead of adding indexes speculatively.",
+      },
+      {
+        title: "Cache with clear ownership",
+        description:
+          "Redis handled repeated reads while the API kept cache keys and invalidation close to the underlying query.",
+      },
+    ],
+    architecture: [
+      { label: "React", description: "Debounced search and role-based dashboards" },
+      { label: "Express", description: "Authenticated REST API and validation" },
+      { label: "Redis", description: "Repeated-read cache and rate limiting" },
+      { label: "PostgreSQL", description: "Prisma models and indexed search paths" },
+      { label: "AWS", description: "EC2 deployment with GitHub Actions" },
+    ],
+    evidenceNote:
+      "Performance figures come from the production work summarized in my resume. The company source is not publicly accessible, so the linked demo is the public product evidence.",
     stack: [
       { name: "React", tip: "TypeScript UI with reusable components" },
       { name: "Express", tip: "REST API with layered middleware" },
@@ -65,32 +148,66 @@ export const projects: Project[] = [
     ],
     demoVideo:
       "https://drive.google.com/file/d/11c2w-95y1ndB2sWpQJ1vazl2JonX7k9h/view?usp=drive_link",
-    code: "https://github.com/skillhighedu/CRM_backend",
   },
   {
-    slug: "videosave",
-    name: "VideoSave",
-    meta: "2025 - Web App",
-    tagline: "A full-stack downloader with background processing and secure delivery.",
+    slug: "hospital-operations-platform",
+    name: "Hospital Operations Platform",
+    meta: "2025 — Full-Stack System",
+    tagline: "Role-based workflows for patients, doctors, and administrators.",
     description:
-      "Built a Next.js 16 downloader for YouTube, Instagram, and X with validated URL intake, drag-and-drop UX, and authenticated or guest download history. Background jobs use yt-dlp, FFmpeg merging, Prisma-backed progress tracking, 2.5-second status polling, Vercel Blob delivery in production, local media fallback for development, OAuth sessions, anonymous cookies, rate limiting, ownership checks, and Zod validation.",
+      "Built a MERN platform around patient registration, doctor onboarding, appointment scheduling, and admin operations. JWT sessions with HTTP-only cookies and role-based access protect each route, while Redis caching keeps frequently requested data responsive.",
+    role: "Full-stack developer intern · Frontend flows, backend services, auth, and caching",
+    status: "Completed internship project",
+    problem:
+      "Patients, doctors, and administrators needed separate operational flows without duplicating the application or exposing routes to the wrong role.",
+    solution:
+      "I built modular React interfaces and Express services around shared domain models, then enforced JWT sessions, HTTP-only cookies, and role-based access at the API boundary. Redis cached frequently requested records.",
     metrics: [
-      { value: "3", label: "Supported platforms" },
-      { value: "2.5s", label: "Status polling" },
-      { value: "Secure", label: "Ownership checks" },
+      { value: "4", label: "Core workflows", kind: "Scope" },
+      { value: "3", label: "Protected user roles", kind: "Scope" },
+      { value: "20+", label: "Reusable React components", kind: "Scope" },
     ],
+    impact: [
+      "Covered patient registration, doctor onboarding, appointment scheduling, and admin operations.",
+      "Separated admin, doctor, and patient permissions across protected routes.",
+      "Kept authentication tokens in HTTP-only cookies instead of browser-accessible storage.",
+      "Used reusable components and modular services to keep each role flow maintainable.",
+    ],
+    decisions: [
+      {
+        title: "Authorization at the route boundary",
+        description:
+          "Role middleware checks access before protected handlers run, rather than relying on what the interface happens to hide.",
+      },
+      {
+        title: "HTTP-only session cookies",
+        description:
+          "The browser can send the JWT without exposing it directly to client-side JavaScript.",
+      },
+      {
+        title: "Shared building blocks, distinct workflows",
+        description:
+          "Reusable React components support three role experiences without turning them into three separate applications.",
+      },
+    ],
+    architecture: [
+      { label: "React", description: "Patient, doctor, and admin interfaces" },
+      { label: "Express", description: "Workflow APIs and authorization middleware" },
+      { label: "JWT", description: "HTTP-only sessions and role checks" },
+      { label: "MongoDB", description: "Users, doctors, and appointment records" },
+      { label: "Redis", description: "Frequently requested data cache" },
+    ],
+    evidenceNote:
+      "The figures describe delivered engineering scope. The public repository contains the implementation; no production usage claim is made for this internship build.",
     stack: [
-      { name: "Next.js 16", tip: "App Router APIs and downloader UI" },
-      { name: "TypeScript", tip: "Types across client and API" },
-      { name: "Prisma", tip: "Progress, status, and download history" },
-      { name: "PostgreSQL", tip: "Persistent user and download data" },
-      { name: "yt-dlp", tip: "Platform media extraction" },
-      { name: "FFmpeg", tip: "Media merging and processing" },
-      { name: "Vercel Blob", tip: "Production file delivery" },
-      { name: "Zod", tip: "URL and payload validation" },
+      { name: "React", tip: "Reusable interfaces for each user role" },
+      { name: "Node.js", tip: "Backend services and workflow logic" },
+      { name: "Express", tip: "REST endpoints and access middleware" },
+      { name: "MongoDB", tip: "Patient, doctor, and appointment records" },
+      { name: "Redis", tip: "Caching for frequently requested data" },
+      { name: "JWT", tip: "HTTP-only sessions with role-based access" },
     ],
-    demoVideo: "https://youtu.be/-Zzo0zGRLeA",
-    code: "https://github.com/chaitanyagalla/videoDownloader.git",
+    code: "https://github.com/chaitanyagalla/health-management-system",
   },
 ];
 
@@ -101,7 +218,7 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    label: "AI And Agents",
+    label: "AI & Agents",
     skills: [
       { name: "Google ADK", tip: "Built and deployed an agent workflow with it" },
       { name: "Gemini", tip: "Reasoning and vision fallback for document workflows" },
@@ -132,7 +249,7 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    label: "Data And Cloud",
+    label: "Data & Cloud",
     skills: [
       { name: "PostgreSQL", tip: "Indexes, relational schema design, and queries" },
       { name: "MongoDB", tip: "Document models and aggregation pipelines" },
@@ -148,25 +265,25 @@ export const experience = [
   {
     role: "Full Stack Developer",
     org: "SkillHigh",
-    period: "Jul 2025 - Mar 2026",
+    period: "Jul 2025 – Mar 2026",
     summary:
-      "Built and maintained a production CRM with React, TypeScript, Express, Prisma, PostgreSQL, Redis, and AWS EC2. Focused on search performance, role-based dashboards, and reliable deployment workflows.",
+      "Built and maintained a production CRM supporting 500+ records with React, TypeScript, Express, Prisma, PostgreSQL, Redis, and AWS EC2. Focused on search performance, role-based dashboards, and reliable deployment workflows.",
     bullets: [
-      "Built CRM dashboards, lead workflows, and role-based screens with React and TypeScript.",
-      "Improved common search paths with PostgreSQL indexes and Redis caching.",
-      "Shipped backend APIs with Express, Prisma, authentication, validation, and deployment support.",
+      "Reduced common search response time from 800ms to 240ms and repeated query load by 60%.",
+      "Built debounced search and filtering across 15+ lead fields plus dashboards for three user roles.",
+      "Shipped Express and Prisma APIs to AWS EC2 with authentication, validation, caching, and CI/CD support.",
     ],
   },
   {
     role: "Full Stack Developer Intern",
     org: "SkillHigh",
-    period: "Mar 2025 - Jun 2025",
+    period: "Mar 2025 – Jun 2025",
     summary:
       "Developed a MERN hospital management system with JWT authentication, role-based access, Redis-cached APIs, and clean operational flows for staff, doctors, and admins.",
     bullets: [
       "Created patient, doctor, and admin flows for a hospital management product.",
-      "Implemented JWT authentication and role-based access across core routes.",
-      "Added Redis-backed API caching for frequently requested data.",
+      "Implemented JWT authentication with HTTP-only cookies and role-based access across protected routes.",
+      "Delivered modular backend services, Redis-backed caching, and 20+ reusable React components.",
     ],
   },
 ];

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Code2, Folder, Play } from "lucide-react";
+import { ArrowRight, Code2, Folder, Play } from "lucide-react";
 import { Fragment } from "react";
 import Reveal from "./Reveal";
 import Tooltip from "./Tooltip";
@@ -35,6 +35,15 @@ function ProjectList({ limit }: { limit?: number }) {
             </div>
             <p className="mt-2 text-base text-mist">{project.tagline}</p>
 
+            <div className="mt-4 flex flex-wrap gap-2 font-mono text-[11px] text-mist">
+              <span className="rounded-full border border-line bg-well/45 px-2.5 py-1">
+                {project.status}
+              </span>
+              <span className="rounded-full border border-line px-2.5 py-1">
+                {project.role}
+              </span>
+            </div>
+
             <p className="mt-5 max-w-2xl text-base leading-8 text-mist">
               {project.description}
             </p>
@@ -43,7 +52,7 @@ function ProjectList({ limit }: { limit?: number }) {
               {project.metrics.map((metric) => (
                 <div key={metric.label} className="flex items-baseline justify-between gap-4 sm:block">
                   <dt className="order-last mt-1 font-mono text-[11px] leading-snug text-dim">
-                    {metric.label}
+                    {metric.label} · {metric.kind}
                   </dt>
                   <dd className="text-xl font-semibold tracking-tight text-fog sm:text-2xl">
                     {metric.value}
@@ -63,17 +72,23 @@ function ProjectList({ limit }: { limit?: number }) {
               ))}
             </p>
 
-            {project.demoVideo || project.code ? (
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                href={`/projects/${project.slug}`}
+                className="btn-primary w-full sm:w-auto"
+              >
+                <ArrowRight className="h-4 w-4" />
+                Read Case Study
+              </Link>
                 {project.demoVideo ? (
                   <a
                     href={project.demoVideo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary w-full sm:w-auto"
+                    className="btn-secondary w-full sm:w-auto"
                   >
                     <Play className="h-4 w-4" />
-                    Demo Video
+                    Watch Demo
                   </a>
                 ) : null}
                 {project.code ? (
@@ -87,8 +102,7 @@ function ProjectList({ limit }: { limit?: number }) {
                     Source
                   </a>
                 ) : null}
-              </div>
-            ) : null}
+            </div>
           </article>
         </Reveal>
       ))}
@@ -112,8 +126,8 @@ export default function Projects({ limit = 2, showSection = true }: ProjectsProp
       id="projects"
       label="Projects"
       labelTip="Ideas meet users here, along with edge cases that skipped the invitation."
-      title="Selected builds with real product constraints."
-      description="A small set of projects that show how I think about interfaces, APIs, data flows, and AI systems that people can actually use."
+      title="Selected work, with the decisions and evidence visible."
+      description="Each case study separates measured results from engineering scope, then shows the architecture, trade-offs, demo, and source behind the summary."
       icon={<Folder className="h-5 w-5" />}
       action={
         hasMore ? (

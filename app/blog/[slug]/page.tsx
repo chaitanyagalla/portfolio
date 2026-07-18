@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 import { links } from "@/lib/data";
 import { blogs, getBlogBySlug } from "@/lib/blogs";
 
@@ -44,13 +45,14 @@ export function generateMetadata({ params }: BlogPostPageProps) {
 
   if (!post) {
     return {
-      title: "Blog Post - Chaitanya Galla",
+      title: "Blog Post",
     };
   }
 
   return {
-    title: `${post.title} - Chaitanya Galla`,
+    title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
   };
 }
 
@@ -85,6 +87,21 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           </header>
 
           <div className="py-12">{renderMdx(post.mdx)}</div>
+
+          <Link
+            href={`/projects/${post.relatedProjectSlug}`}
+            className="group flex items-center justify-between gap-5 rounded-md border border-line bg-well/35 p-5 transition-colors hover:border-amber/70 sm:p-6"
+          >
+            <span>
+              <span className="block font-mono text-[11px] uppercase tracking-[0.16em] text-dim">
+                Related project evidence
+              </span>
+              <span className="mt-2 block text-base font-semibold text-fog">
+                {post.relatedProjectLabel}
+              </span>
+            </span>
+            <ArrowRight className="h-5 w-5 shrink-0 text-amber transition-transform group-hover:translate-x-1" />
+          </Link>
         </article>
 
         <footer className="mt-10 flex flex-col gap-5 border-t border-line pt-8 text-[13px] text-dim sm:flex-row sm:items-center sm:justify-between">

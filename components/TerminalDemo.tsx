@@ -94,7 +94,7 @@ export default function TerminalDemo() {
     <div className="w-full overflow-hidden rounded-md border border-line bg-well">
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-4 py-2.5">
         <span className="min-w-0 break-all font-mono text-xs text-dim">
-          Chaitanya@dev:~/job-scout - Session Replay
+          Chaitanya@dev:~/job-scout — Session Replay
         </span>
         <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-amber">
           <span className="h-1.5 w-1.5 rounded-full bg-amber" />

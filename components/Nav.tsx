@@ -10,6 +10,7 @@ import {
   Moon,
   PenLine,
   Sun,
+  UserRound,
   X,
 } from "lucide-react";
 import Tooltip from "./Tooltip";
@@ -18,7 +19,8 @@ import { links } from "@/lib/data";
 const items = [
   { label: "Work", href: "#projects", icon: Folder },
   { label: "Experience", href: "#experience", icon: Briefcase },
-  { label: "Log", href: "#blogs", icon: PenLine },
+  { label: "About", href: "#about", icon: UserRound },
+  { label: "Blog", href: "#blogs", icon: PenLine },
   { label: "Contact", href: "#contact", icon: Mail },
 ];
 
