@@ -4,12 +4,13 @@ import Section from "./Section";
 
 const strengths = [
   "Own features across frontend, API, data, and deployment layers.",
+  "Learn Java and Spring Boot by building one complete, inspectable product.",
   "Use AI models as planners while keeping validation and scoring inspectable.",
   "Measure the complete user path before choosing a performance fix.",
 ];
 
 const roleFit = [
-  { label: "Target roles", value: "Full-stack · Backend · AI agent engineering" },
+  { label: "Target roles", value: "Full-stack · Java / Spring Boot · Backend" },
   { label: "Location", value: "Hyderabad, India" },
   { label: "Work preference", value: "Remote or hybrid" },
   { label: "Availability", value: "Available now" },
@@ -39,6 +40,12 @@ export default function About() {
               web applications, including a CRM used across more than 500
               records and an internship platform with protected patient,
               doctor, and administrator workflows.
+            </p>
+            <p className="mt-4 text-base leading-8 text-mist">
+              I am expanding that foundation into Java and Spring Boot through
+              TaskFlow, where I am learning security, multi-tenancy,
+              transactional service design, JPA, and Flyway by building a real
+              full-stack MVP in public.
             </p>
             <ul className="mt-6 space-y-4">
               {strengths.map((strength) => (

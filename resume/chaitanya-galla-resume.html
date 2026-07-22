@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chaitanya Galla - Resume</title>
+    <style>
+      @page { size: Letter; margin: 0; }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; background: #fff; }
+      body {
+        color: #111;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 8.85pt;
+        line-height: 1.25;
+      }
+      .page {
+        width: 8.5in;
+        min-height: 11in;
+        padding: .43in .48in .35in;
+      }
+      h1, h2, p, ul { margin: 0; }
+      h1 {
+        font-size: 15.5pt;
+        line-height: 1;
+        text-align: center;
+      }
+      .headline {
+        margin-top: 5pt;
+        font-size: 9.2pt;
+        text-align: center;
+      }
+      .contact {
+        margin-top: 3pt;
+        font-size: 8.5pt;
+        text-align: center;
+      }
+      a { color: #0000ee; text-decoration: underline; text-underline-offset: 1px; }
+      section { margin-top: 8.5pt; }
+      h2 {
+        border-bottom: .65pt solid #222;
+        font-size: 9.8pt;
+        line-height: 1.15;
+        padding-bottom: 2pt;
+      }
+      .summary { margin-top: 4pt; }
+      .skills { margin-top: 3pt; }
+      .skills p + p { margin-top: 1.2pt; }
+      .entry-heading {
+        align-items: baseline;
+        display: flex;
+        gap: 10pt;
+        justify-content: space-between;
+        margin-top: 4pt;
+      }
+      .entry-heading strong { font-size: 8.9pt; }
+      .date { font-weight: 700; white-space: nowrap; }
+      .project-heading {
+        font-size: 8.85pt;
+        font-weight: 700;
+        margin-top: 4.2pt;
+      }
+      .project-heading .tech { font-weight: 400; font-style: italic; }
+      ul { margin-top: 1.5pt; padding-left: 18pt; }
+      li { padding-left: 1pt; }
+      li + li { margin-top: 1.2pt; }
+      .tight li + li { margin-top: .8pt; }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <h1>GALLA CHAITANYA</h1>
+        <p class="headline">Full Stack Developer | React • Next.js • Node.js • TypeScript • PostgreSQL • Java • Spring Boot</p>
+        <p class="contact">
+          Hyderabad, India | +91 8374790308 |
+          <a href="mailto:chaitanyagalla1813@gmail.com">chaitanyagalla1813@gmail.com</a> |
+          <a href="https://www.linkedin.com/in/chaitanya-galla-47a764330/">LinkedIn</a> |
+          <a href="https://github.com/chaitanyagalla">GitHub</a>
+        </p>
+      </header>
+
+      <section>
+        <h2>PROFESSIONAL SUMMARY</h2>
+        <p class="summary">
+          Full Stack Developer with 1+ year of experience building production-grade web apps with React, Next.js, TypeScript,
+          Node.js, and PostgreSQL. Built debounced search flows that improved search performance by 70%. Currently learning Java
+          and Spring Boot by building TaskFlow, a multi-tenant project management platform whose MVP is complete and deployment is in progress.
+        </p>
+      </section>
+
+      <section>
+        <h2>TECHNICAL SKILLS</h2>
+        <div class="skills">
+          <p><strong>Frontend:</strong> React.js, Next.js 14, JavaScript (ES6+), TypeScript, Tailwind CSS, ShadCN UI, HTML5, CSS3, Responsive Design</p>
+          <p><strong>Backend:</strong> Java 21, Spring Boot 3, Spring Security, Spring Data JPA, Node.js, Express.js, REST API Design, Prisma ORM, FastAPI</p>
+          <p><strong>Databases:</strong> PostgreSQL (Indexing, Query Optimization), Flyway, MongoDB, Redis (Caching, Rate Limiting), SQLite</p>
+          <p><strong>AI / Agents:</strong> Google ADK, LiteLLM, Groq, Pydantic, Prompt Engineering, RAG, Tool Use</p>
+          <p><strong>Auth &amp; Security:</strong> JWT, BCrypt, OAuth 2.0, RBAC, Helmet, CORS, Rate Limiting, Zod Validation</p>
+          <p><strong>DevOps &amp; Cloud:</strong> AWS EC2, Docker, Gradle, CI/CD Pipelines, GitHub Actions</p>
+          <p><strong>Tools:</strong> Git, GitHub, Postman, FFmpeg</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>EXPERIENCE</h2>
+        <div class="entry-heading">
+          <strong>Full Stack Developer | SkillHigh</strong>
+          <span class="date">Jul 2025 – Mar 2026</span>
+        </div>
+        <ul class="tight">
+          <li>Architected a React, TypeScript, Express, Prisma, and PostgreSQL CRM enabling lead management and workflow automation for 500+ records.</li>
+          <li>Reduced query load by 60% and search response time from 800ms to 240ms through Redis caching, PostgreSQL indexing, and debounced filters.</li>
+          <li>Designed analytics dashboards for 3 roles and deployed to AWS EC2 with a GitHub Actions CI/CD workflow.</li>
+          <li>Implemented field-based search and filtering across 15+ data fields for high-volume record retrieval.</li>
+        </ul>
+
+        <div class="entry-heading">
+          <strong>Full Stack Developer Intern | SkillHigh</strong>
+          <span class="date">Mar 2025 – Jun 2025</span>
+        </div>
+        <ul class="tight">
+          <li>Built a MERN Hospital Management System covering patient registration, doctor onboarding, appointment scheduling, and admin operations.</li>
+          <li>Implemented JWT authentication with HTTP-only cookies and granular RBAC for Admin, Doctor, and Patient roles.</li>
+          <li>Optimized REST APIs with Redis caching, compound indexes, and debounced search, improving average response time by 60%.</li>
+          <li>Delivered modular backend services and 20+ reusable React components.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>PROJECTS</h2>
+        <p class="project-heading">
+          <a href="https://github.com/chaitanyagalla/taskFlowJava">TaskFlow — Multi-Tenant Project Management</a>
+          <span class="tech"> | Java 21, Spring Boot 3, Spring Security, Spring Data JPA, PostgreSQL, Flyway, React</span>
+        </p>
+        <ul class="tight">
+          <li>Built a Java/Spring Boot MVP with 23 HTTP routes for authentication, users, projects, boards, tasks, subtasks, and comments.</li>
+          <li>Implemented JWT/BCrypt security, tenant-scoped JPA, transactional Kanban movement, Flyway/PostgreSQL, and a tested React client; deployment remains in progress.</li>
+        </ul>
+
+        <p class="project-heading">
+          <a href="https://github.com/chaitanyagalla/job_scout_agent">Job Scout Agent — AI Resume-Matched Job Search</a>
+          <span class="tech"> | Python, Google ADK, Gemini 2.0 Flash, FastAPI, Apify, Adzuna, LiteLLM, Pydantic</span>
+        </p>
+        <ul class="tight">
+          <li>Built an 8-tool agent that parses a resume, searches job sources, and ranks roles through 4 deterministic, explainable scoring signals.</li>
+          <li>Implemented a 3-layer PDF parsing fallback with Pydantic validation and Adzuna/Apify source fallback across 5 countries.</li>
+          <li>Designed a deterministic 0–100 matcher using skill coverage, title alignment, experience gap, and keyword overlap.</li>
+        </ul>
+
+        <p class="project-heading">
+          AI-Powered YouTube Shorts Automation
+          <span class="tech"> | Python, Groq, Edge TTS, MoviePy, FFmpeg, SQLite, YouTube Data API</span>
+        </p>
+        <ul class="tight">
+          <li>Automated script generation, narration, scene rendering, subtitle sync, retries, cleanup, and upload for 50+ multilingual Shorts.</li>
+          <li>Built 6-scene storyboards, AI image generation, and word-boundary subtitle timing with SQLite-backed recovery.</li>
+        </ul>
+
+        <p class="project-heading">
+          VideoSave — Full-Stack Video Downloader
+          <span class="tech"> | Next.js 16, TypeScript, Prisma, PostgreSQL, Vercel Blob, yt-dlp, Zod</span>
+        </p>
+        <ul class="tight">
+          <li>Built multi-platform URL intake, background downloads, FFmpeg merging, progress polling, and authenticated or guest history.</li>
+          <li>Added Vercel Blob delivery, local media fallback, OAuth sessions, anonymous cookies, rate limiting, ownership checks, and Zod validation.</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

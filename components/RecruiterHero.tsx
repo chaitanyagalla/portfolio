@@ -21,7 +21,7 @@ export default function RecruiterHero() {
       <div className="max-w-5xl">
         <p className="inline-flex items-center gap-2 rounded-full border border-line bg-well/50 px-3 py-1.5 font-mono text-xs text-mist">
           <span className="h-2 w-2 rounded-full bg-ok" aria-hidden />
-          Full-Stack Developer · Available now
+          Full-Stack &amp; Java Spring Boot Developer · Available now
         </p>
 
         <h1 className="mt-7 max-w-4xl text-[2.65rem] font-semibold leading-[1.03] tracking-display text-fog sm:text-6xl lg:text-[4.5rem]">
@@ -31,13 +31,16 @@ export default function RecruiterHero() {
 
         <p className="mt-8 max-w-3xl text-xl font-medium leading-9 text-mist sm:text-2xl sm:leading-10">
           I have 1+ year of production experience across React, Node.js,
-          Python, and PostgreSQL. At SkillHigh, I helped cut CRM search time
-          from 800ms to 240ms and repeated query load by 60%.
+          Python, and PostgreSQL, and I am now building with Java 21 and
+          Spring Boot. At SkillHigh, I helped cut CRM search time from 800ms
+          to 240ms and repeated query load by 60%.
         </p>
 
         <p className="mt-5 max-w-2xl text-base leading-8 text-mist">
           I work across the full path from interface and API design to data,
-          deployment, and AI workflows whose decisions can be inspected.
+          deployment, and AI workflows whose decisions can be inspected. My
+          current learning build is a multi-tenant Spring Boot and React task
+          management platform.
         </p>
 
         <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">

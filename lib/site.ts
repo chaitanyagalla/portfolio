@@ -9,4 +9,4 @@ export const siteUrl = new URL(
 );
 
 export const siteDescription =
-  "Full-stack developer with 1+ year of production experience building React, Node.js, Python, PostgreSQL, and inspectable AI agent systems.";
+  "Full-stack and Java Spring Boot developer with 1+ year of production experience building React, Node.js, Python, PostgreSQL, and inspectable AI agent systems.";

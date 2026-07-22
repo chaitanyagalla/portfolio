@@ -171,10 +171,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       <section className="grid gap-10 border-b border-line py-14 lg:grid-cols-[0.8fr_1.2fr] lg:py-20">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-dim">
-            Delivered
+            {project.impactLabel ?? "Delivered"}
           </p>
           <h2 className="mt-5 text-3xl font-semibold tracking-display text-fog">
-            What the build demonstrates.
+            {project.impactTitle ?? "What the build demonstrates."}
           </h2>
           <ul className="mt-7 space-y-4">
             {project.impact.map((item) => (
@@ -188,7 +188,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-dim">
-            Decision log
+            {project.decisionLabel ?? "Decision log"}
           </p>
           <div className="mt-5 space-y-4">
             {project.decisions.map((decision) => (

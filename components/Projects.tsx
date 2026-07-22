@@ -14,7 +14,14 @@ type ProjectsProps = {
 };
 
 function ProjectList({ limit }: { limit?: number }) {
-  const shown = typeof limit === "number" ? projects.slice(0, limit) : projects;
+  const homepageOrder = ["skillhigh-crm", "job-scout-agent"];
+  const ordered =
+    typeof limit === "number"
+      ? homepageOrder
+          .map((slug) => projects.find((project) => project.slug === slug))
+          .filter((project): project is (typeof projects)[number] => Boolean(project))
+      : projects;
+  const shown = typeof limit === "number" ? ordered.slice(0, limit) : ordered;
 
   return (
     <div>

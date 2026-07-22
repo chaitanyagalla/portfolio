@@ -18,6 +18,9 @@ export type Project = {
   solution: string;
   metrics: { value: string; label: string; kind: "Result" | "Scope" }[];
   impact: string[];
+  impactLabel?: string;
+  impactTitle?: string;
+  decisionLabel?: string;
   decisions: { title: string; description: string }[];
   architecture: { label: string; description: string }[];
   evidenceNote: string;
@@ -27,6 +30,69 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "taskflow-java",
+    name: "TaskFlow",
+    meta: "2026 - Java / Spring Boot",
+    tagline: "Learning Java and Spring Boot by building a multi-tenant project management platform.",
+    description:
+      "TaskFlow is my active Java learning build: a production-style Spring Boot 3 backend paired with a responsive React client. The MVP now covers authentication, organization-scoped data, projects, Kanban task movement, filters, subtasks, and comments; deployment, real-time updates, analytics, and hardening remain in progress.",
+    role: "Builder and learner - Java/Spring Boot backend, React client, data model, and tests",
+    status: "In progress - MVP built, deployment next",
+    problem:
+      "Tutorial-sized CRUD apps do not expose the backend decisions I want to understand deeply: authentication boundaries, tenant isolation, transactional ordering, authorization, filtering, schema migrations, and a frontend that must recover when a write fails.",
+    solution:
+      "I am learning those concepts by building one connected system. The Java 21 API uses Spring Boot, Security, Data JPA, Specifications, Flyway, and PostgreSQL; the React client consumes the API through guarded routes, TanStack Query, responsive MUI views, and optimistic Kanban updates with rollback.",
+    metrics: [
+      { value: "Java 21", label: "Backend toolchain", kind: "Scope" },
+      { value: "23", label: "Implemented HTTP routes", kind: "Scope" },
+      { value: "5 / 9", label: "Build phases complete", kind: "Scope" },
+    ],
+    impactLabel: "Built and learning",
+    impactTitle: "What the current MVP teaches and demonstrates.",
+    decisionLabel: "Learning decisions",
+    impact: [
+      "Built stateless JWT authentication with BCrypt, organization creation during registration, and tenant claims checked on every authenticated request.",
+      "Scoped project and task reads to the current organization, with role and ownership rules protecting write operations.",
+      "Implemented transactional Kanban moves that lock, move, and resequence tasks across columns without leaving duplicate positions.",
+      "Connected a responsive React interface with guarded routes, debounced filters, task details, subtasks, comments, and optimistic drag-and-drop rollback.",
+    ],
+    decisions: [
+      {
+        title: "A modular monolith while I learn the domain",
+        description:
+          "Feature-focused Spring packages keep auth, projects, boards, tasks, and users understandable without adding microservice deployment complexity too early.",
+      },
+      {
+        title: "Tenant scope comes from the verified token",
+        description:
+          "The JWT filter verifies the user and organization, stores the tenant for the request, and repositories still query by organization ID so a client cannot choose another tenant.",
+      },
+      {
+        title: "Optimistic movement must be reversible",
+        description:
+          "The UI moves a card immediately, but saves the previous board and restores it if the Spring API rejects the operation.",
+      },
+    ],
+    architecture: [
+      { label: "React", description: "Guarded routes, forms, filters, and responsive Kanban UI" },
+      { label: "REST", description: "Validated request DTOs and consistent API envelopes" },
+      { label: "Security", description: "JWT, BCrypt, RBAC, and request tenant context" },
+      { label: "Spring", description: "Transactional services, JPA repositories, and Specifications" },
+      { label: "PostgreSQL", description: "Flyway-managed tenant, project, board, and task schema" },
+    ],
+    evidenceNote:
+      "This is an in-progress learning project, not a production deployment claim. The public source currently contains the complete MVP, backend and frontend tests, and the progress tracker; deployment and later real-time, analytics, and hardening phases are still open.",
+    stack: [
+      { name: "Java 21", tip: "Language and toolchain for the backend" },
+      { name: "Spring Boot", tip: "REST API, dependency wiring, configuration, and testing" },
+      { name: "Spring Security", tip: "Stateless JWT authentication and role checks" },
+      { name: "Spring Data JPA", tip: "Tenant-scoped persistence and dynamic task filters" },
+      { name: "PostgreSQL", tip: "Relational storage managed through Flyway migrations" },
+      { name: "React", tip: "Responsive client with TanStack Query and MUI" },
+    ],
+    code: "https://github.com/chaitanyagalla/taskFlowJava",
+  },
   {
     slug: "job-scout-agent",
     name: "Job Scout Agent",
@@ -241,6 +307,8 @@ export const skillGroups: SkillGroup[] = [
   {
     label: "Backend",
     skills: [
+      { name: "Java", tip: "Learning Java 21 through the TaskFlow backend" },
+      { name: "Spring Boot", tip: "Built TaskFlow APIs with Security, Data JPA, and validation" },
       { name: "Node.js", tip: "APIs, auth, jobs, and integrations" },
       { name: "Express", tip: "REST services with middleware and validation" },
       { name: "FastAPI", tip: "Python APIs for AI services" },
