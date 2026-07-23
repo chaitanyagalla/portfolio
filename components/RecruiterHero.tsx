@@ -9,19 +9,21 @@ import {
 import Tooltip from "./Tooltip";
 import { links } from "@/lib/data";
 
-const proof = [
-  { value: "1+ year", label: "Production experience" },
-  { value: "70%", label: "Faster CRM search" },
-  { value: "500+", label: "CRM records supported" },
-];
-
 export default function RecruiterHero() {
   return (
-    <section id="top" className="mx-auto max-w-6xl px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-36">
+    <section
+      id="top"
+      className="mx-auto max-w-6xl px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-36"
+    >
       <div className="max-w-5xl">
         <p className="inline-flex items-center gap-2 rounded-full border border-line bg-well/50 px-3 py-1.5 font-mono text-xs text-mist">
           <span className="h-2 w-2 rounded-full bg-ok" aria-hidden />
-          Full-Stack &amp; Java Spring Boot Developer · Available now
+          <span className="sm:hidden">
+            Full-Stack + Java Developer · Available now
+          </span>
+          <span className="hidden sm:inline">
+            Full-Stack &amp; Java Spring Boot Developer · Available now
+          </span>
         </p>
 
         <h1 className="mt-7 max-w-4xl text-[2.65rem] font-semibold leading-[1.03] tracking-display text-fog sm:text-6xl lg:text-[4.5rem]">
@@ -29,22 +31,18 @@ export default function RecruiterHero() {
           <span className="text-amber">AI agent systems.</span>
         </h1>
 
-        <p className="mt-8 max-w-3xl text-xl font-medium leading-9 text-mist sm:text-2xl sm:leading-10">
-          I have 1+ year of production experience across React, Node.js,
-          Python, and PostgreSQL, and I am now building with Java 21 and
-          Spring Boot. At SkillHigh, I helped cut CRM search time from 800ms
-          to 240ms and repeated query load by 60%.
+        <p className="mt-7 max-w-3xl text-lg font-medium leading-8 text-mist sm:text-xl sm:leading-9">
+          Full-stack developer with 1+ year of production experience across
+          React, Node.js, Python, and PostgreSQL. At SkillHigh, I optimized a
+          CRM supporting 500+ records; now I build with Java 21, Spring Boot,
+          and inspectable AI workflows.
         </p>
 
-        <p className="mt-5 max-w-2xl text-base leading-8 text-mist">
-          I work across the full path from interface and API design to data,
-          deployment, and AI workflows whose decisions can be inspected. My
-          current learning build is a multi-tenant Spring Boot and React task
-          management platform.
-        </p>
-
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-          <a href={`mailto:${links.email}`} className="btn-primary w-full sm:w-auto">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <a
+            href={`mailto:${links.email}`}
+            className="btn-primary w-full sm:w-auto"
+          >
             <Mail className="h-4 w-4" />
             Email Me
           </a>
@@ -70,9 +68,16 @@ export default function RecruiterHero() {
         </div>
 
         <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 font-mono text-xs text-mist">
-          <span className="inline-flex items-center gap-2">
+          <a
+            href={`mailto:${links.email}`}
+            className="u-link inline-flex items-center gap-1.5 transition-colors hover:text-fog"
+          >
+            <Mail className="h-3.5 w-3.5" />
+            {links.email}
+          </a>
+          <span className="inline-flex items-center gap-1.5">
             <MapPin className="h-3.5 w-3.5" />
-            Hyderabad, India · Open to remote &amp; hybrid
+            Hyderabad, India
           </span>
           <a
             href={links.linkedin}
@@ -94,20 +99,6 @@ export default function RecruiterHero() {
           </a>
         </div>
       </div>
-
-      <dl className="tnum mt-14 grid overflow-hidden rounded-md border border-line bg-well/35 sm:grid-cols-3">
-        {proof.map((item) => (
-          <div
-            key={item.label}
-            className="border-b border-line px-5 py-5 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0"
-          >
-            <dd className="text-2xl font-semibold tracking-tight text-fog">
-              {item.value}
-            </dd>
-            <dt className="mt-1 font-mono text-xs text-mist">{item.label}</dt>
-          </div>
-        ))}
-      </dl>
     </section>
   );
 }

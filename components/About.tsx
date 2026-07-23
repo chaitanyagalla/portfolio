@@ -12,7 +12,6 @@ const strengths = [
 const roleFit = [
   { label: "Target roles", value: "Full-stack · Java / Spring Boot · Backend" },
   { label: "Location", value: "Hyderabad, India" },
-  { label: "Work preference", value: "Remote or hybrid" },
   { label: "Availability", value: "Available now" },
 ];
 

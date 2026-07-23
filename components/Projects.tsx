@@ -13,6 +13,12 @@ type ProjectsProps = {
   showSection?: boolean;
 };
 
+const careerProof = [
+  { value: "1+ year", label: "Production experience" },
+  { value: "800 → 240ms", label: "CRM search time" },
+  { value: "60%", label: "Less repeated query load" },
+];
+
 function ProjectList({ limit }: { limit?: number }) {
   const homepageOrder = ["skillhigh-crm", "job-scout-agent"];
   const ordered =
@@ -148,6 +154,19 @@ export default function Projects({ limit = 2, showSection = true }: ProjectsProp
         ) : null
       }
     >
+      <dl className="tnum mb-14 grid overflow-hidden rounded-md border border-line bg-well/35 sm:grid-cols-3">
+        {careerProof.map((item) => (
+          <div
+            key={item.label}
+            className="border-b border-line px-5 py-4 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0"
+          >
+            <dd className="text-xl font-semibold tracking-tight text-fog">
+              {item.value}
+            </dd>
+            <dt className="mt-1 font-mono text-xs text-mist">{item.label}</dt>
+          </div>
+        ))}
+      </dl>
       <ProjectList limit={limit} />
     </Section>
   );
